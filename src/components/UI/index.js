@@ -1,5 +1,11 @@
-import MainLayout from '@/components/MainLayout';
+import StepOne from '@/components/StepOne';
+import StepTwo from '@/components/StepTwo';
+import StepThree from '@/components/StepThree';
+import iconBase from '@/components/IconBase';
 
 export default [
-  MainLayout
+  StepOne,
+  StepTwo,
+  StepThree,
+  iconBase
 ];

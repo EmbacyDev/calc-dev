@@ -1,0 +1,34 @@
+@function em($pixels, $context: $browser-context-em)
+  @return calc($pixels / $context) * 1em
+
+
+@function px($pixels, $context: $browser-context-px)
+  @return calc($pixels * $context) * 1px
+
+
+/*----------------------- styles ------------------------------ */
+body
+  font-size: 1.1111111111111112vw
+  background: #ebebf1
+
+.container
+  max-width: em(900)
+  padding: em(100)
+  margin: auto
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.main-step
+  background: beige
+
+.step
+  display: flex
+  padding: em(32)
+
+.btn
+  display: flex
+  padding: em(10) em(40) em(10) em(40)
+
+.btn-back
+  flex-direction: row-reverse

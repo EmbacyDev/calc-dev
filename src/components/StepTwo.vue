@@ -1,12 +1,12 @@
 <template>
-  <div class='main-layout'>
-    <h1>MainLayout</h1>
+  <div class='main-step step-two'>
+    <h2>StepTwo</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MainLayout',
+  name: 'StepTwo',
   components: {},
   props: {},
   data() {
@@ -19,5 +19,4 @@ export default {
 </script>
 
 <style lang="sass">
-
 </style>
