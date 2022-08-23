@@ -15,6 +15,12 @@
   width: 100%
   height: 100%
   .menu
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-content: center
+    justify-content: flex-start
+    align-items: center
     padding: em(40) em(100) em(40) em(100)
     img
       width: em(20)

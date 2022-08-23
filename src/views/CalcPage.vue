@@ -3,41 +3,12 @@
     <div class="container">
       <div class="main-content">
         <div class="check-block">
-          <div class="step">
-            <h5>step 1</h5>
+          <div class="step"
+               v-for="item in itemsStep"
+               :key="item.title">
+            <h5>{{ item.title }}</h5>
             <icon-base :iconWidth="25"
-                       :iconHeight="25"
-                       v-if="step >= 1">
-              <path fill="#59b6a4"
-                    d="M14.43 8.22a7.09 7.09 0 0 1-7.09 7.09A7.09 7.09 0 0 1 .26 8.22a7.09
-                  7.09 0 0 1 7.08-7.08 7.09 7.09 0 0 1 7.09 7.08Z"
-                    opacity=".99"/>
-              <path fill="none"
-                    stroke="#fff"
-                    stroke-width="1.56"
-                    d="M3.19 8.69 6 11.5l5.15-7.02"/>
-            </icon-base>
-          </div>
-          <div class="step">
-            <h5>step 2</h5>
-            <icon-base :iconWidth="25"
-                       :iconHeight="25"
-                       v-if="step >= 2">
-              <path fill="#59b6a4"
-                    d="M14.43 8.22a7.09 7.09 0 0 1-7.09 7.09A7.09 7.09 0 0 1 .26 8.22a7.09
-                  7.09 0 0 1 7.08-7.08 7.09 7.09 0 0 1 7.09 7.08Z"
-                    opacity=".99"/>
-              <path fill="none"
-                    stroke="#fff"
-                    stroke-width="1.56"
-                    d="M3.19 8.69 6 11.5l5.15-7.02"/>
-            </icon-base>
-          </div>
-          <div class="step">
-            <h5>step 3</h5>
-            <icon-base :iconWidth="25"
-                       :iconHeight="25"
-                       v-if="step >= 3">
+                       :iconHeight="25">
               <path fill="#59b6a4"
                     d="M14.43 8.22a7.09 7.09 0 0 1-7.09 7.09A7.09 7.09 0 0 1 .26 8.22a7.09
                   7.09 0 0 1 7.08-7.08 7.09 7.09 0 0 1 7.09 7.08Z"
@@ -50,7 +21,8 @@
           </div>
         </div>
         <keep-alive>
-          <component :is="renderStepComponent"/>
+          <component ref="stepComponent"
+                     :is="renderStepComponent"/>
         </keep-alive>
       </div>
       <div class="button-w">
@@ -70,7 +42,7 @@
         </button>
         <button type="button"
                 class="btn btn-next"
-                @click="nextStep">Next
+                @click="nextStep(); updateTotal();">Next
           <icon-base :iconWidth="25"
                      :iconHeight="25">
             <path fill="none"
@@ -99,6 +71,11 @@ export default {
   },
   data() {
     return {
+      itemsStep: [
+        { title: 'Experience' },
+        { title: 'Scope' },
+        { title: 'Project' }
+      ],
       steps: ['StepOne', 'StepTwo', 'StepThree'],
       step: 0
     };
@@ -113,18 +90,19 @@ export default {
     nextStep() {
       if (this.step <= 1) {
         this.step++;
+      } else {
+        this.$router.push({ path: '/total' });
+        console.log({ router: this.$router });
       }
     },
     prevStep() {
       if (this.step >= 1) {
         this.step--;
       }
+    },
+    updateTotal() {
+      return this.$refs.stepComponent.submitForm();
     }
-    // totalStep() {
-    //   if (this.step >= 1) {
-    //     this.step--;
-    //   }
-    // }
   }
 };
 </script>
@@ -132,6 +110,7 @@ export default {
 <style scoped lang="sass">
 .container
   .main-content
+    width: 100%
     display: flex
 
     .check-block
@@ -144,5 +123,6 @@ export default {
       border-bottom-left-radius: em(20)
 
   .button-w
+    width: 100%
     display: flex
 </style>
