@@ -1,7 +1,8 @@
 <template>
   <div class='total-page'>
     <div class="container">
-      <h1>Необходимо выбрать данные в калькуляторе</h1>
+      <h1 v-if="lengthTotal"> Ваш охуенный результат </h1>
+      <h1 v-else>Необходимо выбрать данные в калькуляторе</h1>
       <ul v-for="item in calcTotal"
           :key="item">
         <li>BTC {{ item }}</li>
@@ -12,8 +13,8 @@
       <router-link class="btn-link"
                    @click="removeTotal"
                    to="/">Врнуться на главную</router-link>
-      <span @click="removeTotal"
-            @keydown="removeTotal">jxbcnbnm</span>
+      <span @click="removeTotal()"
+            @keydown="removeTotal">Очистить результат</span>
     </div>
   </div>
 </template>
@@ -29,6 +30,9 @@ export default {
     return {};
   },
   computed: {
+    lengthTotal() {
+      return this.calcTotal.length > 1;
+    },
     ...mapGetters([
       'TOTAL'
     ]),
