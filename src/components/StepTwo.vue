@@ -217,8 +217,13 @@ export default {
       });
     },
     submitForm() {
-      this.ADD_TOTAL([this.checkedRadioInputLayout, this.checkedRadioInputTemplate,
-        this.numberInputUnique, this.numberInputTemplate, ...this.checkedList]);
+      this.ADD_TOTAL([
+        this.checkedRadioInputLayout,
+        this.checkedRadioInputTemplate,
+        this.numberInputUnique,
+        this.numberInputTemplate,
+        ...this.checkedList
+      ]);
     }
   }
 };

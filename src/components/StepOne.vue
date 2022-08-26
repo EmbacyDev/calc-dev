@@ -92,7 +92,10 @@ export default {
       'ADD_TOTAL'
     ]),
     submitForm() {
-      this.ADD_TOTAL([this.checkedRadioInput, this.numberInputHourly]);
+      this.ADD_TOTAL([
+        this.checkedRadioInput,
+        this.numberInputHourly
+      ]);
     }
   }
 };

@@ -8,13 +8,13 @@
         <li>BTC {{ item }}</li>
       </ul>
       <router-link class="btn-link"
-                   @click="removeTotal"
+                   @click="removeTotalAll"
                    to="/calculator">Пройти заново</router-link>
       <router-link class="btn-link"
-                   @click="removeTotal"
+                   @click="removeTotalAll"
                    to="/">Врнуться на главную</router-link>
-      <span @click="removeTotal()"
-            @keydown="removeTotal">Очистить результат</span>
+      <span @click="removeTotalAll()"
+            @keydown="removeTotalAll">Очистить результат</span>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
     ...mapActions([
       'ALL_REMOVE_TOTAL'
     ]),
-    removeTotal() {
+    removeTotalAll() {
       this.ALL_REMOVE_TOTAL();
     }
   }

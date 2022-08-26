@@ -29,7 +29,7 @@
         <button :disabled="step <= 0"
                 type="button"
                 class="btn btn-back"
-                @click="prevStep">Back
+                @click="prevStep(); removeTotal();">Back
           <icon-base :iconWidth="25"
                      :iconHeight="25">
             <path fill="none"
@@ -60,6 +60,8 @@
 
 <script>
 
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'CalcPage',
   components: {},
@@ -76,17 +78,22 @@ export default {
         { title: 'Scope' },
         { title: 'Project' }
       ],
-      steps: ['StepOne', 'StepTwo', 'StepThree'],
       step: 0
     };
   },
   computed: {
+    ...mapGetters([
+      'STEPS'
+    ]),
     renderStepComponent() {
-      return this.steps[this.step];
+      return this.STEPS[this.step];
     }
   },
   watch: {},
   methods: {
+    ...mapActions([
+      'REMOVE_TOTAL'
+    ]),
     nextStep() {
       if (this.step <= 1) {
         this.step++;
@@ -102,6 +109,9 @@ export default {
     },
     updateTotal() {
       return this.$refs.stepComponent.submitForm();
+    },
+    removeTotal() {
+      this.REMOVE_TOTAL();
     }
   }
 };

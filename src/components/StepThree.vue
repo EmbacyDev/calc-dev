@@ -81,7 +81,10 @@ export default {
       'ADD_TOTAL'
     ]),
     submitForm() {
-      this.ADD_TOTAL([this.checkedRadioInputInteresting, this.checkedRadioInputImportant]);
+      this.ADD_TOTAL([
+        this.checkedRadioInputInteresting,
+        this.checkedRadioInputImportant
+      ]);
     }
   }
 };
