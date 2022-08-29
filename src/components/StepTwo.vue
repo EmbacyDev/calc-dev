@@ -7,101 +7,33 @@
           <p>Take an honest look at your designs. How crazy are we talking?</p>
           <hr>
         </div>
-        <div class="input-radio-w">
-          <fieldset id="group1"
-                    v-for="item in itemsLayoutRadioInput"
-                    :key="item.id"
-                    class="form-radio-btn">
-            <input :id="item.id"
-                   type="radio"
-                   class="radio_btn"
-                   name="group1"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="checkedRadioInputLayout">
-            <label :for="item.id">{{ item.title }}</label>
-          </fieldset>
-        </div>
+        <question-radio :itemsRadioInput="itemsLayoutRadioInput"
+                        v-model:checkedRadio="checkedRadioInputLayout"
+                        idGroup="radio2"/>
       </div>
       <div class="form-w flex-row">
         <div class="form-heading-w">
           <h2>How many unique page layouts?</h2>
           <p>Number of pages you’ll need to build manually from scratch</p>
         </div>
-        <div class="input-w">
-          <div @click="numberInputUnique++"
-               @keydown="numberInputUnique++"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M3 19h18a1 1 0 0 0
-            .82-1.57l-9-13c-.37-.54-1.27-.54-1.64 0l-9 13A1 1 0 0 0 3 19z"/>
-            </icon-base>
-          </div>
-          <div class="number-input-w">
-            <label for="hourly-rate"
-                   class="input-text"/>
-            <input type="number"
-                   class="number-input"
-                   maxlength="256"
-                   max="256"
-                   min="5"
-                   name="field-3"
-                   step="5"
-                   v-model.trim.number="numberInputUnique"
-                   placeholder=""
-                   id="hourly-rate">
-          </div>
-          <div @click="numberInputUnique--"
-               @keydown="numberInputUnique--"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M11.18 19.57a1 1 0 0 0 1.64
-              0l9-13A1 1 0 0 0 21 5H3a1 1 0 0 0-.82 1.57l9 13z"/>
-            </icon-base>
-          </div>
-        </div>
+        <question-number  :value="numberInputUnique"
+                          v-model:valueNumber="numberInputUnique"
+                          idInput="unique-input"
+                          :max="100"
+                          :min="1"
+                          :step="1"/>
       </div>
       <div class="form-w flex-row">
         <div class="form-heading-w">
           <h2>How many template-based layouts?</h2>
           <p>Pages you build once, then rinse-and-repeat with different content & assets</p>
         </div>
-        <div class="input-w">
-          <div @click="numberInputTemplate++"
-               @keydown="numberInputTemplate++"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M3 19h18a1 1 0 0 0
-            .82-1.57l-9-13c-.37-.54-1.27-.54-1.64 0l-9 13A1 1 0 0 0 3 19z"/>
-            </icon-base>
-          </div>
-          <div class="number-input-w">
-            <label for="hourly-rate"
-                   class="input-text"/>
-            <input type="number"
-                   class="number-input"
-                   maxlength="256"
-                   max="256"
-                   min="5"
-                   name="field-3"
-                   step="5"
-                   v-model.trim.number="numberInputTemplate"
-                   placeholder=""
-                   id="hourly-rate">
-          </div>
-          <div @click="numberInputTemplate--"
-               @keydown="numberInputTemplate--"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M11.18 19.57a1 1 0 0 0 1.64
-              0l9-13A1 1 0 0 0 21 5H3a1 1 0 0 0-.82 1.57l9 13z"/>
-            </icon-base>
-          </div>
-        </div>
+        <question-number  :value="numberInputTemplate"
+                          v-model:valueNumber="numberInputTemplate"
+                          idInput="template-input"
+                          :max="100"
+                          :min="0"
+                          :step="1"/>
       </div>
       <div class="form-w">
         <div class="form-heading-w">
@@ -109,21 +41,9 @@
           <p>Things like animations, transitions and usability quirks that ramp up complexity</p>
           <hr>
         </div>
-        <div class="input-radio-w">
-          <fieldset id="group2"
-                    v-for="item in itemsInteractionsRadioInput"
-                    :key="item.id"
-                    class="form-radio-btn">
-            <input :id="item.id"
-                   type="radio"
-                   class="radio_btn"
-                   name="group2"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="checkedRadioInputTemplate">
-            <label :for="item.id">{{ item.title }}</label>
-          </fieldset>
-        </div>
+        <question-radio :itemsRadioInput="itemsInteractionsRadioInput"
+                        v-model:checkedRadio="checkedRadioInputTemplate"
+                        idGroup="radio3"/>
       </div>
       <div class="form-w">
         <div class="form-heading-w">
@@ -131,6 +51,8 @@
           <p>No CMS? No problemo! But if there’s one, we’ll account for setup and hacking time</p>
           <hr>
         </div>
+        <question-check-box :itemsCheckBoxInput="itemsCMSCheckBoxInput"
+                            v-model:checkedList="checkedRadioInputTemplate"/>
         <div class="input-radio-w">
           <fieldset class="form-radio-btn">
             <input id="no"
@@ -161,10 +83,11 @@
 
 <script>
 import { mapActions } from 'vuex';
+import QuestionCheckBox from '@/components/QuestionCheckBox';
 
 export default {
   name: 'StepTwo',
-  components: {},
+  components: { QuestionCheckBox },
   props: {},
   data() {
     return {
@@ -229,7 +152,7 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 .step-two
   .form-heading-w
     width: 100%
@@ -274,18 +197,6 @@ export default {
     border: em(1) solid #999
     border-radius: em(6)
     width: auto
-
-    .number-input-w
-      display: flex
-      align-content: center
-      justify-content: center
-      align-items: center
-
-      .number-input
-        background: beige
-        border: none
-        width: em(100)
-        height: em(40)
 
 .step-one .form-w:last-child
   margin-top: em(32)

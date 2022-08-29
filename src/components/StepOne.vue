@@ -3,65 +3,25 @@
     <form>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>How long have you been doing Webflow?</h2>
-          <p>Your skillset factors into flexibility, deadline and other aspects of the job</p>
+          <h2>How interesting is the project?</h2>
+          <p>It’s ok to charge less if the job’s cool.
+            Options 2 and 3 progressively reduce your fee by</p>
           <hr>
         </div>
-        <div class="input-radio-w">
-          <div v-for="item in itemsRadioInput"
-               :key="item.id"
-               class="form-radio-btn">
-            <input :id="item.id"
-                   type="radio"
-                   class="radio_btn"
-                   name="radio"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="checkedRadioInput">
-            <label :for="item.id">{{ item.title }}</label>
-          </div>
-        </div>
+        <question-radio :itemsRadioInput="itemsRadioInput"
+                        v-model:checkedRadio="checkedRadioInput"
+                        idGroup="radio1"/>
       </div>
       <div class="form-w flex-row">
         <div class="form-heading-w">
           <h2>What’s your hourly rate?</h2>
           <p>Enter your usual rate, or the one you expect from this project</p>
         </div>
-        <div class="input-w">
-          <div @click="numberInputHourly += 5"
-               @keydown="numberInputHourly += 5"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M3 19h18a1 1 0 0 0
-            .82-1.57l-9-13c-.37-.54-1.27-.54-1.64 0l-9 13A1 1 0 0 0 3 19z"/>
-            </icon-base>
-          </div>
-          <div class="number-input-w">
-            <label for="hourly-rate"
-                   class="input-text">$</label>
-            <input type="number"
-                   class="number-input"
-                   maxlength="256"
-                   max="256"
-                   min="5"
-                   name="field-3"
-                   step="5"
-                   v-model.trim.number="numberInputHourly"
-                   placeholder=""
-                   id="hourly-rate">
-            <div class="number-input-text">/h</div>
-          </div>
-          <div @click="numberInputHourly -= 5"
-               @keydown="numberInputHourly -= 5"
-               class="number-input-arrow">
-            <icon-base :iconWidth="24"
-                       :iconHeight="24">
-              <path d="M11.18 19.57a1 1 0 0 0 1.64
-              0l9-13A1 1 0 0 0 21 5H3a1 1 0 0 0-.82 1.57l9 13z"/>
-            </icon-base>
-          </div>
-        </div>
+        <question-number  :value="numberInputHourly"
+                          symbolOne="$"
+                          symbolSecond="/h"
+                          v-model:valueNumber="numberInputHourly"
+                          idInput="hourly-input"/>
       </div>
     </form>
   </div>
@@ -72,7 +32,6 @@ import { mapActions } from 'vuex';
 
 export default {
   name: 'StepOne',
-  components: {},
   props: {},
   data() {
     return {
@@ -92,16 +51,18 @@ export default {
       'ADD_TOTAL'
     ]),
     submitForm() {
-      this.ADD_TOTAL([
-        this.checkedRadioInput,
-        this.numberInputHourly
-      ]);
+      this.ADD_TOTAL(
+        [
+          this.checkedRadioInput,
+          this.numberInputHourly
+        ]
+      );
     }
   }
 };
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 .step-one
   .form-heading-w
     width: 100%
@@ -147,15 +108,4 @@ export default {
     border-radius: em(6)
     width: auto
 
-    .number-input-w
-      display: flex
-      align-content: center
-      justify-content: center
-      align-items: center
-
-      .number-input
-        background: beige
-        border: none
-        width: em(100)
-        height: em(40)
 </style>
