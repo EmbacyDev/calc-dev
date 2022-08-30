@@ -5,10 +5,11 @@
              type="checkbox"
              class="checkbox_btn"
              value="0"
-             :checked="(removeCheckedList === 0)"
+             :disabled="isCheckAll"
+             :checked="isCheckAll"
              v-model="isCheckAll"
-             @click="checkAll()">
-      <label for="no">No CMS</label>
+             @click="checkAllReset()">
+      <label for="no">{{ resetBoxName }}</label>
     </fieldset>
     <fieldset v-for="item in itemsCheckBoxInput"
               :key="item.id"
@@ -18,7 +19,7 @@
              class="checkbox_btn"
              :value="item.value"
              :checked="item.checked"
-             @input="$emit('update:checkedList', parseInt($event.target.value))">
+             @input="checkBoxClick">
       <label :for="item.id">{{ item.title }}</label>
     </fieldset>
   </div>
@@ -32,9 +33,12 @@ export default {
   props: {
     itemsCheckBoxInput: {
       type: Object
+    },
+    resetBoxName: {
+      type: String,
+      default: 'No'
     }
   },
-  emits: ['update:checkedList'],
   data() {
     return {
       isCheckAll: true
@@ -45,17 +49,32 @@ export default {
       return this.itemsCheckBoxInput
         .filter(el => el.checked && el.value !== 0)
         .map(el => el.value);
-    },
-    removeCheckedList() {
-      return this.checkedList.length;
     }
   },
   methods: {
-    checkAll() {
+    checkBoxClick(event) {
+      const items = Object.values(this.itemsCheckBoxInput);
+      items.forEach(el => {
+        if (el.value === Number(event.target.value)) {
+          el.checked = !el.checked;
+          this.isCheckAll = false;
+        }
+        if (this.itemsCheckBoxInput.filter(item => item.checked).length === 0) {
+          this.isCheckAll = true;
+        }
+      });
+      this.pushUPDate();
+    },
+    checkAllReset() {
       const items = Object.values(this.itemsCheckBoxInput);
       items.forEach(el => {
         el.checked = false;
       });
+      this.isCheckAll = true;
+      this.pushUPDate();
+    },
+    pushUPDate() {
+      this.$emit('update:checkedList', this.checkedList);
     }
   }
 };

@@ -48,46 +48,22 @@
       <div class="form-w">
         <div class="form-heading-w">
           <h2>CMS complexity</h2>
-          <p>No CMS? No problemo! But if there’s one, we’ll account for setup and hacking time</p>
+          <p>No CMS? No problem! But if there’s one, we’ll account for setup and hacking time</p>
           <hr>
         </div>
         <question-check-box :itemsCheckBoxInput="itemsCMSCheckBoxInput"
-                            v-model:checkedList="checkedRadioInputTemplate"/>
-        <div class="input-radio-w">
-          <fieldset class="form-radio-btn">
-            <input id="no"
-                   type="checkbox"
-                   class="checkbox_btn"
-                   value="0"
-                   :checked="(removeCheckedList === 0)"
-                   v-model="isCheckAll"
-                   @click="checkAll()">
-            <label for="no">No CMS</label>
-          </fieldset>
-          <fieldset v-for="item in itemsCMSCheckBoxInput"
-                    :key="item.id"
-                    class="form-radio-btn">
-            <input :id="item.id"
-                   type="checkbox"
-                   class="checkbox_btn"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="item.checked">
-            <label :for="item.id">{{ item.title }}</label>
-          </fieldset>
-        </div>
+                            v-model:checkedList="CMSCheckBoxInput"/>
+
       </div>
     </form>
-  </div>
+  </div>̧̧
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-import QuestionCheckBox from '@/components/QuestionCheckBox';
 
 export default {
   name: 'StepTwo',
-  components: { QuestionCheckBox },
   props: {},
   data() {
     return {
@@ -115,37 +91,21 @@ export default {
       numberInputUnique: 1,
       numberInputTemplate: 0,
       checkedRadioInputTemplate: 155,
-      isCheckAll: true
+      CMSCheckBoxInput: []
     };
-  },
-  computed: {
-    checkedList() {
-      return this.itemsCMSCheckBoxInput
-        .filter(el => el.checked && el.value !== 0)
-        .map(el => el.value);
-    },
-    removeCheckedList() {
-      return this.checkedList.length;
-    }
   },
   watch: {},
   methods: {
     ...mapActions([
       'ADD_TOTAL'
     ]),
-    checkAll() {
-      const items = Object.values(this.itemsCMSCheckBoxInput);
-      items.forEach(el => {
-        el.checked = false;
-      });
-    },
     submitForm() {
       this.ADD_TOTAL([
         this.checkedRadioInputLayout,
         this.checkedRadioInputTemplate,
         this.numberInputUnique,
         this.numberInputTemplate,
-        ...this.checkedList
+        ...this.CMSCheckBoxInput
       ]);
     }
   }
