@@ -3,7 +3,7 @@
     <fieldset v-for="item in itemsRadioInput"
               :key="item.id"
               :id=idGroup
-              class="form-radio-btn">
+              class="form-btn">
       <input :id="item.id"
              type="radio"
              class="radio_btn"

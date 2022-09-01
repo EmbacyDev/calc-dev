@@ -87,6 +87,15 @@ export default {
     ]),
     renderStepComponent() {
       return this.STEPS[this.step];
+    },
+    getStepLength() {
+      let stepLength;
+      if (this.STEPS.length >= 4) {
+        stepLength = 2;
+      } else {
+        stepLength = 1;
+      }
+      return stepLength;
     }
   },
   watch: {},
@@ -95,11 +104,11 @@ export default {
       'REMOVE_TOTAL'
     ]),
     nextStep() {
-      if (this.step <= 1) {
+      if (this.step <= this.getStepLength) {
         this.step++;
       } else {
         this.$router.push({ path: '/total' });
-        console.log({ router: this.$router });
+        // console.log({ router: this.$router });
       }
     },
     prevStep() {

@@ -8,6 +8,7 @@
     </router-link> EmbacyDev
   </div>
   <router-view/>
+  <main-footer/>
 </template>
 
 <style lang="sass">

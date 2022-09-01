@@ -1,98 +1,103 @@
-.<template>
+<template>
   <div class='main-step step-two'>
     <form>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Layout Complexity?</h2>
-          <p>Take an honest look at your designs. How crazy are we talking?</p>
+          <h2>Лейаут (табы)</h2>
+          <p>title text</p>
           <hr>
         </div>
-        <question-radio :itemsRadioInput="itemsLayoutRadioInput"
-                        v-model:checkedRadio="checkedRadioInputLayout"
-                        idGroup="radio2"/>
+        <question-radio :itemsRadioInput="quest1"
+                        v-model:checkedRadio="valueQuest1"
+                        idGroup="quest1"/>
       </div>
-      <div class="form-w flex-row">
+      <div v-if="getVariant <= 3"
+           class="form-w flex-row">
         <div class="form-heading-w">
-          <h2>How many unique page layouts?</h2>
-          <p>Number of pages you’ll need to build manually from scratch</p>
+          <h2>Кол-во шаблонных страниц</h2>
+          <p>title text</p>
         </div>
-        <question-number  :value="numberInputUnique"
-                          v-model:valueNumber="numberInputUnique"
-                          idInput="unique-input"
-                          :max="100"
-                          :min="1"
-                          :step="1"/>
+        <question-number :value="quest2.value"
+                         :min=1
+                         :max=250
+                         :step=1
+                         v-model:valueNumber="valueQuest2"
+                         :idInput="quest2.id"/>
       </div>
-      <div class="form-w flex-row">
+      <div v-if="getVariant <= 3"
+           class="form-w flex-row">
         <div class="form-heading-w">
-          <h2>How many template-based layouts?</h2>
-          <p>Pages you build once, then rinse-and-repeat with different content & assets</p>
+          <h2>Кол-во уникальных страниц</h2>
+          <p>title text</p>
         </div>
-        <question-number  :value="numberInputTemplate"
-                          v-model:valueNumber="numberInputTemplate"
-                          idInput="template-input"
-                          :max="100"
-                          :min="0"
-                          :step="1"/>
+        <question-number :value="quest3.value"
+                         :min=1
+                         :max=250
+                         :step=1
+                         v-model:valueNumber="valueQuest3"
+                         :idInput="quest3.id"/>
+      </div>
+      <div v-if="getVariant <= 3"
+           class="form-w">
+        <div class="form-heading-w">
+          <h2>Адаптив</h2>
+          <p>title text</p>
+          <hr>
+        </div>
+        <question-radio :itemsRadioInput="quest4"
+                        v-model:checkedRadio="valueQuest4"
+                        idGroup="quest4"/>
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Interactions complexity</h2>
-          <p>Things like animations, transitions and usability quirks that ramp up complexity</p>
+          <h2>Моушн дизайн</h2>
+          <p>title text</p>
           <hr>
         </div>
-        <question-radio :itemsRadioInput="itemsInteractionsRadioInput"
-                        v-model:checkedRadio="checkedRadioInputTemplate"
-                        idGroup="radio3"/>
+        <question-radio :itemsRadioInput="quest5"
+                        v-model:checkedRadio="valueQuest5"
+                        idGroup="quest5"/>
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>CMS complexity</h2>
-          <p>No CMS? No problem! But if there’s one, we’ll account for setup and hacking time</p>
+          <h2>Страницы с промо контентом</h2>
+          <p>title text</p>
           <hr>
         </div>
-        <question-check-box :itemsCheckBoxInput="itemsCMSCheckBoxInput"
-                            v-model:checkedList="CMSCheckBoxInput"/>
+        <question-check-box :itemsCheckBoxInput="quest6"
+                            resetBoxName="No int"
+                            v-model:checkedList="valueQuest6"/>
 
       </div>
     </form>
-  </div>̧̧
+  </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
+import itemsStepTwo from '@/components/mixinsDate/itemsStepTwo';
 
 export default {
   name: 'StepTwo',
+  mixins: [itemsStepTwo],
   props: {},
   data() {
     return {
-      itemsLayoutRadioInput: [
-        { id: 'radio-1', title: 'Simple', value: 150, checked: true },
-        { id: 'radio-2', title: 'Middling', value: 250 },
-        { id: 'radio-3', title: 'Complex', value: 350 }
-      ],
-      itemsInteractionsRadioInput: [
-        { id: 'radio-4', title: 'Static', value: 155, checked: true },
-        { id: 'radio-5', title: 'Medium', value: 255 },
-        { id: 'radio-6', title: 'Complex', value: 355 }
-      ],
-      itemsCMSCheckBoxInput: [
-        { id: 'check-2', title: 'Blog', value: 165, checked: false },
-        { id: 'check-3', title: 'Case Studies', value: 265, checked: false },
-        { id: 'check-4', title: 'Team Members', value: 365, checked: false },
-        { id: 'check-5', title: 'Open Roles', value: 465, checked: false },
-        { id: 'check-6', title: 'Help Center', value: 565, checked: false },
-        { id: 'check-7', title: 'Services', value: 665, checked: false },
-        { id: 'check-8', title: 'Podcast', value: 765, checked: false },
-        { id: 'check-9', title: 'Other', value: 865, checked: false }
-      ],
-      checkedRadioInputLayout: 150,
-      numberInputUnique: 1,
-      numberInputTemplate: 0,
-      checkedRadioInputTemplate: 155,
-      CMSCheckBoxInput: []
+      valueQuest1: 3000,
+      valueQuest2: 1,
+      valueQuest3: 1,
+      valueQuest4: 2000,
+      valueQuest5: 0,
+      valueQuest6: []
     };
+  },
+  computed: {
+    ...mapGetters([
+      'VARIANT'
+    ]),
+    getVariant() {
+      return this.VARIANT[0];
+    }
   },
   watch: {},
   methods: {
@@ -100,13 +105,35 @@ export default {
       'ADD_TOTAL'
     ]),
     submitForm() {
-      this.ADD_TOTAL([
-        this.checkedRadioInputLayout,
-        this.checkedRadioInputTemplate,
-        this.numberInputUnique,
-        this.numberInputTemplate,
-        ...this.CMSCheckBoxInput
-      ]);
+      this.ADD_TOTAL(
+        [
+          {
+            q: 1,
+            c: 1,
+            v: this.valueQuest1
+          },
+          {
+            q: 2,
+            v: this.valueQuest2
+          },
+          {
+            q: 3,
+            v: this.valueQuest3
+          },
+          {
+            q: 4,
+            v: this.valueQuest4
+          },
+          {
+            q: 5,
+            v: this.valueQuest5
+          },
+          {
+            q: 6,
+            v: this.valueQuest6
+          }
+        ]
+      );
     }
   }
 };
@@ -116,10 +143,11 @@ export default {
 .step-two
   .form-heading-w
     width: 100%
+
     h2
       margin-bottom: em(8)
 
-  .form-radio-btn
+  .form-btn
     display: inline-block
     margin-right: em(10)
     border-radius: em(6)
@@ -158,6 +186,4 @@ export default {
     border-radius: em(6)
     width: auto
 
-.step-one .form-w:last-child
-  margin-top: em(32)
 </style>

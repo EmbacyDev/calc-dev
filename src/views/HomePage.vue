@@ -3,7 +3,7 @@
     <div class="container">
       <h1>Тут начинается калькулятор</h1>
       <router-link class="btn-link"
-                   to="/calculator">Start
+                   to="/calculator">Start building
       </router-link>
     </div>
   </div>

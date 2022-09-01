@@ -1,89 +1,100 @@
 <template>
   <div class='main-step step-three'>
     <form>
-      <div class="form-w">
+      <div v-if="getVariant === 1"
+           class="form-w">
         <div class="form-heading-w">
-          <h2>How interesting is the project?</h2>
-          <p>It’s ok to charge less if the job’s cool.
-            Options 2 and 3 progressively reduce your fee by</p>
+          <h2>Пожелание к CMS технологии</h2>
+          <p>title text</p>
           <hr>
         </div>
-        <div class="input-radio-w">
-          <fieldset id="group1"
-                    v-for="item in itemsInterestingRadioInput"
-                    :key="item.id"
-                    class="form-radio-btn">
-            <input :id="item.id"
-                   type="radio"
-                   class="radio_btn"
-                   name="group1"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="checkedRadioInputInteresting">
-            <label :for="item.id">{{ item.title }}</label>
-          </fieldset>
-        </div>
+        <question-radio :itemsRadioInput="variantQuest7"
+                        v-model:checkedRadio="valueQuest7"
+                        idGroup="quest7"/>
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>How important is this client to you?</h2>
-          <p>Don’t lose a dream client to a short-term paycheck.
-            Options 2 and 3 reduce your fee by</p>
+          <h2>Интеграции</h2>
+          <p>title text</p>
           <hr>
         </div>
-        <div class="input-radio-w">
-          <fieldset id="group2"
-                    v-for="item in itemsImportantRadioInput"
-                    :key="item.id"
-                    class="form-radio-btn">
-            <input :id="item.id"
-                   type="radio"
-                   class="radio_btn"
-                   name="group2"
-                   :value="item.value"
-                   :checked="item.checked"
-                   v-model="checkedRadioInputImportant">
-            <label :for="item.id">{{ item.title }}</label>
-          </fieldset>
+        <question-check-box :itemsCheckBoxInput="variantQuest8"
+                            resetBoxName="No int"
+                            v-model:checkedList="valueQuest8"/>
+
+      </div>
+      <div class="form-w">
+        <div class="form-heading-w">
+          <h2>Хостинг сайта</h2>
+          <p>title text</p>
+          <hr>
         </div>
+        <question-radio :itemsRadioInput="variantQuest9"
+                        v-model:checkedRadio="valueQuest9"
+                        idGroup="quest9"/>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
+import itemsStepThree from '@/components/mixinsDate/itemsStepThree';
 
 export default {
   name: 'StepThree',
-  components: {},
+  mixins: [itemsStepThree],
   props: {},
   data() {
     return {
-      itemsInterestingRadioInput: [
-        { id: 'radio-1', title: 'Booooring', value: 151 },
-        { id: 'radio-2', title: 'Biz as usual', value: 251, checked: true },
-        { id: 'radio-3', title: 'Good portfolio', value: 351 }
-      ],
-      itemsImportantRadioInput: [
-        { id: 'radio-4', title: 'Just money', value: 157 },
-        { id: 'radio-5', title: 'Good portfolio', value: 257, checked: true },
-        { id: 'radio-6', title: 'Life changer', value: 357 }
-      ],
-      checkedRadioInputInteresting: 251,
-      checkedRadioInputImportant: 257
+      variantQuest7: this.quest7,
+      variantQuest8: this.quest8,
+      variantQuest9: this.quest9,
+      valueQuest7: 0,
+      valueQuest8: [],
+      valueQuest9: 0
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters([
+      'VARIANT'
+    ]),
+    getVariant() {
+      return this.VARIANT[0];
+    }
+  },
   watch: {},
+  created() {
+    if (this.VARIANT[0] >= 3) {
+      this.setVariantMixin();
+    } else {
+      this.variantQuest7 = this.quest7;
+      this.variantQuest8 = this.quest8;
+      this.variantQuest9 = this.quest9;
+    }
+  },
   methods: {
     ...mapActions([
       'ADD_TOTAL'
     ]),
+    setVariantMixin() {
+      this.variantQuest8 = this.quest8V2;
+      this.variantQuest9 = this.quest9V2;
+    },
     submitForm() {
       this.ADD_TOTAL([
-        this.checkedRadioInputInteresting,
-        this.checkedRadioInputImportant
+        {
+          q: 7,
+          v: this.valueQuest7
+        },
+        {
+          q: 8,
+          v: this.valueQuest8
+        },
+        {
+          q: 9,
+          v: this.valueQuest9
+        }
       ]);
     }
   }
@@ -94,10 +105,11 @@ export default {
 .step-three
   .form-heading-w
     width: 100%
+
     h2
       margin-bottom: em(8)
 
-  .form-radio-btn
+  .form-btn
     display: inline-block
     margin-right: em(10)
     border-radius: em(6)
@@ -136,15 +148,6 @@ export default {
     border-radius: em(6)
     width: auto
 
-    .number-input-w
-      display: flex
-      align-content: center
-      justify-content: center
-      align-items: center
-
-      .number-input
-        background: beige
-        border: none
-        width: em(100)
-        height: em(40)
+.step-one .form-w:last-child
+  margin-top: em(32)
 </style>

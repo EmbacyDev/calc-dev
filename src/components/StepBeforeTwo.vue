@@ -1,15 +1,15 @@
 <template>
-  <div class='main-step step-one'>
+  <div class='main-step step-before'>
     <form>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Адаптив</h2>
+          <h2>Выбор варианта сайта</h2>
           <p>title text</p>
           <hr>
         </div>
-        <question-radio :itemsRadioInput="quest0"
-                        v-model:checkedRadio="valueQuest0"
-                        idGroup="quest4"/>
+        <question-radio :itemsRadioInput="questB"
+                        v-model:checkedRadio="valueQuestB"
+                        idGroup="quest0"/>
       </div>
     </form>
   </div>
@@ -17,15 +17,15 @@
 
 <script>
 import { mapActions } from 'vuex';
-import itemsStepOne from '@/components/mixinsDate/itemsStepOne';
+import itemsStepBefore from '@/components/mixinsDate/itemsStepBefore';
 
 export default {
-  name: 'StepOne',
-  mixins: [itemsStepOne],
+  name: 'StepBeforeTwo',
+  mixins: [itemsStepBefore],
   props: {},
   data() {
     return {
-      valueQuest0: 1
+      valueQuestB: 3
     };
   },
   methods: {
@@ -33,14 +33,14 @@ export default {
       'ADD_VARIANT'
     ]),
     submitForm() {
-      this.ADD_VARIANT([this.valueQuest0]);
+      this.ADD_VARIANT([this.valueQuestB]);
     }
   }
 };
 </script>
 
 <style lang="sass">
-.step-one
+.step-before
   .form-heading-w
     width: 100%
 

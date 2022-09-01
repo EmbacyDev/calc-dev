@@ -2,9 +2,10 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    steps: ['StepOne', 'StepTwo', 'StepThree'],
+    steps: ['StepOne', 'StepBeforeTwo', 'StepTwo', 'StepThree'],
     total: [],
-    totalLength: []
+    totalLength: [],
+    variant: [1]
   },
   getters: {
     TOTAL(state) {
@@ -12,9 +13,18 @@ export default createStore({
     },
     STEPS(state) {
       return state.steps;
+    },
+    VARIANT(state) {
+      return state.variant;
     }
   },
   mutations: {
+    SET_VARIANT: (state, values) => {
+      if (values < 2) {
+        state.steps.splice(1, 1);
+      }
+      state.variant = values;
+    },
     SET_TOTAL: (state, values) => {
       values.forEach(item => {
         state.total.push(item);
@@ -25,6 +35,7 @@ export default createStore({
       if (state.totalLength.length <= 1) {
         state.total = [];
         state.totalLength = [];
+        state.variant = [1];
       } else {
         const end = state.totalLength[0] - state.totalLength[1];
         state.total.splice(state.totalLength[1], end);
@@ -34,9 +45,16 @@ export default createStore({
     ALL_REMOVE: state => {
       state.total = [];
       state.totalLength = [];
+      state.variant = [1];
+      if (state.steps[1] !== 'StepBeforeTwo') {
+        state.steps.splice(1, 0, 'StepBeforeTwo');
+      }
     }
   },
   actions: {
+    ADD_VARIANT({ commit }, value) {
+      commit('SET_VARIANT', value);
+    },
     ADD_TOTAL({ commit }, value) {
       commit('SET_TOTAL', value);
     },
