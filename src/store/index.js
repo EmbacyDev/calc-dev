@@ -31,7 +31,12 @@ export default createStore({
       });
       state.totalLength.unshift(state.total.length);
     },
-    REMOVE_TOTAL: state => {
+    REMOVE_TOTAL: (state, value) => {
+      if (value <= 0) {
+        if (state.steps[1] !== 'StepBeforeTwo') {
+          state.steps.splice(1, 0, 'StepBeforeTwo');
+        }
+      }
       if (state.totalLength.length <= 1) {
         state.total = [];
         state.totalLength = [];
@@ -58,8 +63,8 @@ export default createStore({
     ADD_TOTAL({ commit }, value) {
       commit('SET_TOTAL', value);
     },
-    REMOVE_TOTAL({ commit }) {
-      commit('REMOVE_TOTAL');
+    REMOVE_TOTAL({ commit }, value) {
+      commit('REMOVE_TOTAL', value);
     },
     ALL_REMOVE_TOTAL({ commit }) {
       commit('ALL_REMOVE');

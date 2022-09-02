@@ -3,7 +3,7 @@
     <form>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Адаптив</h2>
+          <h2>H1. Pick you technology?</h2>
           <p>title text</p>
           <hr>
         </div>

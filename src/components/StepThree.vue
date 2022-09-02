@@ -84,15 +84,15 @@ export default {
     submitForm() {
       this.ADD_TOTAL([
         {
-          q: 7,
+          q: 'Пожелание к CMS технологии',
           v: this.valueQuest7
         },
         {
-          q: 8,
+          q: 'Интеграции',
           v: this.valueQuest8
         },
         {
-          q: 9,
+          q: 'Хостинг сайта',
           v: this.valueQuest9
         }
       ]);

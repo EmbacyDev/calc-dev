@@ -3,9 +3,11 @@
     <div class="container">
       <h1 v-if="lengthTotal"> Ваш охуенный результат </h1>
       <h1 v-else>Необходимо выбрать данные в калькуляторе</h1>
+      <h2>{{ variant }}</h2>
+      <h3>{{ pageType }}</h3>
       <ul v-for="item in calcTotal"
           :key="item">
-        <li>BTC {{ item }}</li>
+        <li>Вопрос: {{ item.q }}, выбраное значение {{ item.v }}</li>
       </ul>
       <router-link class="btn-link"
                    @click="removeTotalAll"
@@ -27,14 +29,18 @@ export default {
   components: {},
   props: {},
   data() {
-    return {};
+    return {
+      variant: '',
+      pageType: ''
+    };
   },
   computed: {
     lengthTotal() {
       return this.calcTotal.length > 1;
     },
     ...mapGetters([
-      'TOTAL'
+      'TOTAL',
+      'VARIANT'
     ]),
     calcTotal() {
       let allProductInCart = [];
@@ -49,6 +55,20 @@ export default {
     }
   },
   watch: {},
+  mounted() {
+    if (this.VARIANT[0] === 1) {
+      this.variant = 'Code';
+    }
+    if (this.VARIANT[0] > 2) {
+      this.variant = 'No code';
+    }
+    if (this.VARIANT[0] > 3) {
+      this.pageType = 'Коорпор сайт';
+    }
+    if (this.VARIANT[0] > 4) {
+      this.pageType = 'Landing page';
+    }
+  },
   methods: {
     ...mapActions([
       'ALL_REMOVE_TOTAL'

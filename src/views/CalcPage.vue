@@ -7,7 +7,8 @@
                v-for="item in itemsStep"
                :key="item.title">
             <h5>{{ item.title }}</h5>
-            <icon-base :iconWidth="25"
+            <icon-base v-if="item.icon"
+                       :iconWidth="25"
                        :iconHeight="25">
               <path fill="#59b6a4"
                     d="M14.43 8.22a7.09 7.09 0 0 1-7.09 7.09A7.09 7.09 0 0 1 .26 8.22a7.09
@@ -29,7 +30,7 @@
         <button :disabled="step <= 0"
                 type="button"
                 class="btn btn-back"
-                @click="prevStep(); removeTotal();">Back
+                @click="prevStep(); removeTotal(); removeItemSteps();">Back
           <icon-base :iconWidth="25"
                      :iconHeight="25">
             <path fill="none"
@@ -42,7 +43,7 @@
         </button>
         <button type="button"
                 class="btn btn-next"
-                @click="nextStep(); updateTotal();">Next
+                @click="nextStep(); updateTotal(); updateItemSteps();">Next
           <icon-base :iconWidth="25"
                      :iconHeight="25">
             <path fill="none"
@@ -74,16 +75,17 @@ export default {
   data() {
     return {
       itemsStep: [
-        { title: 'Experience' },
-        { title: 'Scope' },
-        { title: 'Project' }
+        { title: 'Step 1', icon: false },
+        { title: 'Step 2', icon: false },
+        { title: 'Step 3', icon: false }
       ],
       step: 0
     };
   },
   computed: {
     ...mapGetters([
-      'STEPS'
+      'STEPS',
+      'VARIANT'
     ]),
     renderStepComponent() {
       return this.STEPS[this.step];
@@ -103,7 +105,23 @@ export default {
     ...mapActions([
       'REMOVE_TOTAL'
     ]),
+    updateItemSteps() {
+      if (this.VARIANT[0] === 2) {
+        this.itemsStep.push({
+          title: 'Step 4',
+          icon: false
+        });
+      }
+    },
+    removeItemSteps() {
+      if (this.step < 1) {
+        this.itemsStep.splice(2, 1);
+        console.log('РАБОТАЕТ');
+      }
+    },
     nextStep() {
+      const items = Object.values(this.itemsStep);
+      items[this.step].icon = true;
       if (this.step <= this.getStepLength) {
         this.step++;
       } else {
@@ -112,6 +130,8 @@ export default {
       }
     },
     prevStep() {
+      const items = Object.values(this.itemsStep);
+      items[this.step - 1].icon = false;
       if (this.step >= 1) {
         this.step--;
       }
@@ -120,7 +140,7 @@ export default {
       return this.$refs.stepComponent.submitForm();
     },
     removeTotal() {
-      this.REMOVE_TOTAL();
+      this.REMOVE_TOTAL(this.step);
     }
   }
 };

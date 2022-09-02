@@ -108,28 +108,27 @@ export default {
       this.ADD_TOTAL(
         [
           {
-            q: 1,
-            c: 1,
+            q: 'Лейаут (табы)',
             v: this.valueQuest1
           },
           {
-            q: 2,
+            q: 'Кол-во шаблонных страниц',
             v: this.valueQuest2
           },
           {
-            q: 3,
+            q: 'Кол-во уникальных страниц',
             v: this.valueQuest3
           },
           {
-            q: 4,
+            q: 'Адаптив',
             v: this.valueQuest4
           },
           {
-            q: 5,
+            q: 'Моушн дизайн',
             v: this.valueQuest5
           },
           {
-            q: 6,
+            q: 'Страницы с промо контентом',
             v: this.valueQuest6
           }
         ]
