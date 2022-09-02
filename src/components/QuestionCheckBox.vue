@@ -1,6 +1,6 @@
 <template>
   <div class="input-checkbox-w">
-    <fieldset class="form-btn">
+    <fieldset class="form-checkbox">
       <div>
         <input id="no"
                type="checkbox"
@@ -81,27 +81,38 @@ export default {
 };
 </script>
 <style lang="sass">
+.form-checkbox
+  display: grid
+  grid-auto-columns: 1fr
+  grid-auto-rows: 1fr
+  grid-template-columns: repeat(3, min-content)
+  grid-template-rows: repeat(2, min-content)
+  gap: em(16) em(16)
+  justify-content: stretch
+  border-radius: em(6)
+  label
+    display: inline-block
+
 input[type="checkbox"]
   display: none
 
 input[type="checkbox"] + label
-  display: inline-block
-  margin: 2px 2px 2px 2px
-  padding: 4px 12px
-  font-size: 14px
-  line-height: 20px
-  color: #333
-  text-align: center
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
-  vertical-align: middle
+  min-width: em(150)
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-wrap: nowrap
   cursor: pointer
-  background-color: #f5f5f5
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05)
+  padding: 0 em(15)
+  line-height: em(34)
+  border: em(1) solid #999
+  border-radius: em(6)
+  user-select: none
 
 input[type="checkbox"]:checked + label
   background-image: none
   outline: 0
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
-  background-color: #e0e0e0
+  background-color: $pur
 
 </style>

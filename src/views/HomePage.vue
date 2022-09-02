@@ -4,7 +4,7 @@
       <div class="container">
         <div class="header-w">
           <div class="info-w">
-            <div class="h1-w">
+            <div class="h-w">
               <span class="before-text">H1.</span>
               <h1>Website configurator</h1>
             </div>
@@ -44,7 +44,7 @@ export default {
 <style lang="sass">
 .header-w
   display: flex
-  .h1-w
+  .h-w
     display: flex
     .before-text
       +h1internal($color: $or, $size: em(65))

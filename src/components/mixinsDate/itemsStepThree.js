@@ -38,7 +38,7 @@ export default {
         },
         {
           id: 'check-7',
-          title: 'Рассылки (Mailchimp)',
+          title: 'Mailchimp',
           value: 301,
           checked: false
         },
@@ -95,7 +95,7 @@ export default {
         },
         {
           id: 'check-7',
-          title: 'Рассылки (Mailchimp)',
+          title: 'Mailchimp',
           value: 251,
           checked: false
         },

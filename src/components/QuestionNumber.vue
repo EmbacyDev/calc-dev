@@ -134,9 +134,27 @@ export default {
 };
 </script>
 <style lang="sass">
+input[type="number"]
+  text-align: center
+  padding: 0
+  outline: none
+  border: none
+  box-sizing: border-box
+  +body($size: em(24))
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+  display: none
+
 .number-input-arrow
+  cursor: pointer
   border: none
   background: transparent
+  &:hover
+    color: $ored
+  &:active
+    color: $yel
+    transform: scale(0.9)
 
 .number-input-w
   display: flex
@@ -145,8 +163,8 @@ export default {
   align-items: center
 
   .number-input
-    background: beige
+    background: $milk
     border: none
-    width: em(100)
+    width: em(40)
     height: em(40)
 </style>

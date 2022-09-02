@@ -3,7 +3,10 @@
     <form>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>H1. Pick you technology?</h2>
+          <div class="h-w">
+            <span class="before-text">H1.</span>
+            <h3>Pick you technology?</h3>
+          </div>
           <p>title text</p>
           <hr>
         </div>
@@ -43,37 +46,8 @@ export default {
 .step-one
   .form-heading-w
     width: 100%
-
     h2
       margin-bottom: em(8)
-
-  .form-btn
-    display: inline-block
-    margin-right: em(10)
-    border-radius: em(6)
-
-    .radio_btn
-      display: none
-
-      &:checked + label
-        background: #ffe0a6
-
-    label
-      min-width: em(150)
-      display: flex
-      justify-content: center
-      align-items: center
-      flex-wrap: nowrap
-      cursor: pointer
-      padding: 0 em(15)
-      line-height: em(34)
-      border: em(1) solid #999
-      border-radius: em(6)
-      user-select: none
-
-    &:hover
-      color: #666
-      background: rgba(255, 224, 166, 0.71)
 
   .input-w
     display: flex

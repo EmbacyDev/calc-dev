@@ -45,8 +45,17 @@ section
   padding: em(50)
   margin: 0
 
+.h-w
+  display: flex
+
 h1
   +h1internal($size: em(65))
+
+h2
+  +h2($size: em(54))
+
+h2
+  +h3($size: em(30))
 
 a
   white-space: nowrap
@@ -58,6 +67,9 @@ img
 
 svg, span
   display: inline-block
+
+input
+  +body($size: em(24))
 
 .main-step
   height: auto
@@ -100,25 +112,7 @@ svg, span
   align-items: flex-start
   margin-bottom: em(32)
 
-  input[type="number"]
-    text-align: center
-    padding: 0
-    outline: none
-    border: none
-    box-sizing: border-box
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button
-    display: none
-
-  .number-input-arrow
-    cursor: pointer
-
-    &:hover
-      color: #999999
-
-    &:active
-      transform: scale(0.9)
 
 .flex-row
   display: flex
