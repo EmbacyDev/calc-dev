@@ -1,14 +1,16 @@
+import MainNavBar from '@/components/MainNavBar';
 import StepOne from '@/components/StepOne';
+import StepBeforeTwo from '@/components/StepBeforeTwo';
 import StepTwo from '@/components/StepTwo';
 import StepThree from '@/components/StepThree';
 import iconBase from '@/components/IconBase';
 import QuestionRadio from '@/components/QuestionRadio';
 import QuestionNumber from '@/components/QuestionNumber';
-import questionCheckBox from '@/components/QuestionCheckBox';
+import QuestionCheckBox from '@/components/QuestionCheckBox';
 import MainFooter from '@/components/MainFooter';
-import StepBeforeTwo from '@/components/StepBeforeTwo';
 
 export default [
+  MainNavBar,
   StepOne,
   StepBeforeTwo,
   StepTwo,
@@ -16,6 +18,6 @@ export default [
   iconBase,
   QuestionRadio,
   QuestionNumber,
-  questionCheckBox,
+  QuestionCheckBox,
   MainFooter
 ];

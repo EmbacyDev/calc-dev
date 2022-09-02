@@ -1,62 +1,60 @@
 <template>
-  <div class="calc-page">
-    <div class="container">
-      <div class="main-content">
-        <div class="check-block">
-          <div class="step"
-               v-for="item in itemsStep"
-               :key="item.title">
-            <h5>{{ item.title }}</h5>
-            <icon-base v-if="item.icon"
-                       :iconWidth="25"
-                       :iconHeight="25">
-              <path fill="#59b6a4"
-                    d="M14.43 8.22a7.09 7.09 0 0 1-7.09 7.09A7.09 7.09 0 0 1 .26 8.22a7.09
-                  7.09 0 0 1 7.08-7.08 7.09 7.09 0 0 1 7.09 7.08Z"
-                    opacity=".99"/>
-              <path fill="none"
-                    stroke="#fff"
-                    stroke-width="1.56"
-                    d="M3.19 8.69 6 11.5l5.15-7.02"/>
-            </icon-base>
+  <section>
+    <div class="page">
+      <div class="container">
+        <div class="main-content">
+          <div class="check-block">
+            <div class="step"
+                 v-for="item in itemsStep"
+                 :key="item.title">
+              <h5>{{ item.title }}</h5>
+              <icon-base v-if="item.icon"
+                         iconColor="#ff531a"
+                         :iconWidth="24"
+                         :iconHeight="24">
+                <path d="M10.381 21.629
+               1.491 15.404c-.534-.374-.664-1.11-.29-1.644l1.354-1.934c.374-.534
+               1.11-.664 1.644-.29L10.189 15.729l8.982-12.827c.374-.534 1.11-.664
+               1.644-.29l1.934 1.355c.534.374 .664 1.11.29 1.644L12.025
+               21.339c-.374.534-1.11.664-1.644.29z"/>
+              </icon-base>
+            </div>
           </div>
+          <keep-alive>
+            <component ref="stepComponent"
+                       :is="renderStepComponent"/>
+          </keep-alive>
         </div>
-        <keep-alive>
-          <component ref="stepComponent"
-                     :is="renderStepComponent"/>
-        </keep-alive>
-      </div>
-      <div class="button-w">
-        <button :disabled="step <= 0"
-                type="button"
-                class="btn btn-back"
-                @click="prevStep(); removeTotal(); removeItemSteps();">Back
-          <icon-base :iconWidth="25"
-                     :iconHeight="25">
-            <path fill="none"
-                  stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 10H1m0 0 8.06-8.06M1 10l8.06 8.06"/>
-          </icon-base>
-        </button>
-        <button type="button"
-                class="btn btn-next"
-                @click="nextStep(); updateTotal(); updateItemSteps();">Next
-          <icon-base :iconWidth="25"
-                     :iconHeight="25">
-            <path fill="none"
-                  stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 10h16m0 0L8.94 1.94M17 10l-8.06 8.06"/>
-          </icon-base>
-        </button>
+        <div class="button-w">
+          <button :disabled="step <= 0"
+                  type="button"
+                  class="btn btn-back"
+                  @click="prevStep(); removeTotal(); removeItemSteps();">Back
+            <icon-base :iconWidth="24"
+                       :iconHeight="24">
+              <path stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21.664 12l-19.328 0m0 0L12.072 21.736M2.336 12l9.736-9.736"/>
+            </icon-base>
+          </button>
+          <button type="button"
+                  class="btn btn-next"
+                  @click="nextStep(); updateTotal(); updateItemSteps();">Next
+            <icon-base :iconWidth="24"
+                       :iconHeight="24">
+              <path stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.336 12l19.328 0m0 0L11.928 21.736M21.664 12l-9.736-9.736"/>
+            </icon-base>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -75,9 +73,18 @@ export default {
   data() {
     return {
       itemsStep: [
-        { title: 'Step 1', icon: false },
-        { title: 'Step 2', icon: false },
-        { title: 'Step 3', icon: false }
+        {
+          title: 'Step 1',
+          icon: false
+        },
+        {
+          title: 'Step 2',
+          icon: false
+        },
+        {
+          title: 'Step 3',
+          icon: false
+        }
       ],
       step: 0
     };
@@ -153,15 +160,16 @@ export default {
     display: flex
 
     .check-block
-      padding: em(70) em(30) em(70) em(30)
+      padding: em(10) em(10) em(100) em(10)
       display: flex
       height: 100%
       flex-direction: column
-      background: wheat
+      background: $lgr
       border-top-left-radius: em(20)
       border-bottom-left-radius: em(20)
 
   .button-w
     width: 100%
     display: flex
+    justify-content: flex-end
 </style>

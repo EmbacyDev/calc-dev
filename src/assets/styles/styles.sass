@@ -1,44 +1,89 @@
 @function em($pixels, $context: $browser-context-em)
   @return calc($pixels / $context) * 1em
 
+@function vw($pixels, $context: $browser-context-px)
+  @return calc($pixels * $context) * 1vw
 
 @function px($pixels, $context: $browser-context-px)
   @return calc($pixels * $context) * 1px
 
 
 /*----------------------- styles ------------------------------ */
+/* scrollBar */
+::-webkit-scrollbar,
+html ::-webkit-scrollbar
+  height: 5px
+  width: 5px
+
+
+::-webkit-scrollbar-track,
+html ::-webkit-scrollbar-track
+  background: $milk
+
+
+::-webkit-scrollbar-thumb,
+html ::-webkit-scrollbar-thumb
+  background-color: $ored
+  border-radius: 1px
+
 body
   font-size: 1.1111111111111112vw
   background: $white
 
 .page
+  //min-height: 100vh
   display: flex
   align-items: flex-start
   justify-content: center
-  height: auto
 
 section
   padding-right: 2.5em
   padding-left: 2.5em
 
 .container
-  max-width: em(900)
-  padding: em(100)
-  margin: auto
+  max-width: em(1440)
+  padding: em(50)
+  margin: 0
 
 h1
-  margin-bottom: 32px
+  +h1internal($size: em(65))
+
+a
+  white-space: nowrap
+
+img
+  display: block
+  width: 100%
+  object-fit: contain
+
+svg, span
+  display: inline-block
 
 .main-step
-  background: beige
+  height: auto
+  width: 100%
+  overflow: hidden
+  background: $milk
   border-top-right-radius: em(20)
   border-bottom-right-radius: em(20)
   padding: em(30)
 
 .step
+  min-width: em(110)
   display: flex
-  padding: em(32)
+  padding: em(32) em(8) em(32) em(32)
+  align-items: center
+  justify-content: flex-start
+  align-content: center
+  flex-wrap: nowrap
+  +h4($size: em(20))
+  h5
+    text-transform: uppercase
+    padding-right: em(12)
 
+
+
+///________________??
 .btn
   display: flex
   padding: em(10) em(40) em(10) em(40)
@@ -80,14 +125,15 @@ h1
   flex-direction: row
   align-items: flex-start
 
-.btn-link
-  display: flex
-  align-items: center
-  justify-content: center
-  padding: 10px 40px 10px 40px
-  background: #59b6a4
-  border: 1px solid black
-  border-radius: 10px
+
+.link-gr
+  transition-property: all
+  transition-duration: 300ms
+  transition-timing-function: cubic-bezier(.25, .46, .45, .94)
+  color: $gr
+  font-size: 1em
+  line-height: 120%
+  text-decoration: none
   &:hover
-    border: 1px solid #59b6a4
-    background: white
+    text-decoration: underline
+    color: #ff531a

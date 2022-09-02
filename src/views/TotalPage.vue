@@ -1,24 +1,24 @@
 <template>
-  <div class='total-page'>
-    <div class="container">
-      <h1 v-if="lengthTotal"> Ваш охуенный результат </h1>
-      <h1 v-else>Необходимо выбрать данные в калькуляторе</h1>
-      <h2>{{ variant }}</h2>
-      <h3>{{ pageType }}</h3>
-      <ul v-for="item in calcTotal"
-          :key="item">
-        <li>Вопрос: {{ item.q }}, выбраное значение {{ item.v }}</li>
-      </ul>
-      <router-link class="btn-link"
-                   @click="removeTotalAll"
-                   to="/calculator">Пройти заново</router-link>
-      <router-link class="btn-link"
-                   @click="removeTotalAll"
-                   to="/">Врнуться на главную</router-link>
-      <span @click="removeTotalAll()"
-            @keydown="removeTotalAll">Очистить результат</span>
+  <section>
+    <div class="page">
+      <div class="container">
+        <h1 v-if="lengthTotal"> Ваш охуенный результат </h1>
+        <h1 v-else>Необходимо выбрать данные в калькуляторе</h1>
+        <h2>{{ variant }}</h2>
+        <h3>{{ pageType }}</h3>
+        <ul v-for="item in calcTotal"
+            :key="item">
+          <li>Вопрос: {{ item.q }}, выбраное значение {{ item.v }}</li>
+        </ul>
+        <router-link class="btn-link"
+                     @click="removeTotalAll"
+                     to="/">Врнуться на главную
+        </router-link>
+        <span @click="removeTotalAll()"
+              @keydown="removeTotalAll">Очистить результат</span>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
