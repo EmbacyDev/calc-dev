@@ -82,33 +82,28 @@ input
   border-top-right-radius: em(20)
   border-bottom-right-radius: em(20)
   padding: em(30)
-  .form-heading-w
-    width: 100%
-    h2
-      margin-bottom: em(8)
-  .input-w
+  .form-w
+    border: em(1) solid #999
+    padding: em(10)
+    border-radius: em(6)
     display: flex
     flex-direction: column
-    align-items: center
-    justify-content: center
-    align-content: center
-    flex-wrap: nowrap
-    border: em(1) solid #999
-    border-radius: em(6)
-    width: auto
-
-.step
-  min-width: em(110)
-  display: flex
-  padding: em(32) em(8) em(32) em(32)
-  align-items: center
-  justify-content: flex-start
-  align-content: center
-  flex-wrap: nowrap
-  +h4($size: em(20))
-  h5
-    text-transform: uppercase
-    padding-right: em(12)
+    align-items: flex-start
+    margin-bottom: em(32)
+    .form-heading-w
+      width: 100%
+      h2
+        margin-bottom: em(8)
+    .input-w
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      align-content: center
+      flex-wrap: nowrap
+      border: em(1) solid #999
+      border-radius: em(6)
+      width: auto
 
 @include small-d
   ::-webkit-scrollbar,
@@ -147,70 +142,33 @@ input
   input
     +body($size: px(24))
 
-  .main-step
-    border-top-right-radius: px(20)
-    border-bottom-right-radius: px(20)
-    padding: px(30)
+.main-step
+  height: auto
+  width: 100%
+  overflow: hidden
+  background: $milk
+  border-top-right-radius: px(5)
+  border-bottom-right-radius: px(5)
+  padding: px(5)
+  .form-w
+    border: px(1) solid #999
+    padding: px(10)
+    border-radius: px(6)
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    margin-bottom: px(32)
     .form-heading-w
       width: 100%
       h2
         margin-bottom: px(8)
     .input-w
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      align-content: center
+      flex-wrap: nowrap
       border: px(1) solid #999
       border-radius: px(6)
-
-  .step
-    min-width: px(110)
-    padding: px(32) px(8) px(32) px(32)
-    +h4($size: px(20))
-    h5
-      padding-right: px(12)
-
-
-
-
-
-
-
-
-
-
-
-
-
-///________________??
-.btn
-  display: flex
-  padding: em(10) em(40) em(10) em(40)
-
-.btn-back
-  flex-direction: row-reverse
-
-.form-w
-  border: em(1) solid #999
-  padding: em(10)
-  border-radius: em(6)
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  margin-bottom: em(32)
-
-
-
-.flex-row
-  display: flex
-  flex-direction: row
-  align-items: flex-start
-
-
-.link-gr
-  transition-property: all
-  transition-duration: 300ms
-  transition-timing-function: cubic-bezier(.25, .46, .45, .94)
-  color: $gr
-  font-size: 1em
-  line-height: 120%
-  text-decoration: none
-  &:hover
-    text-decoration: underline
-    color: #ff531a
+      width: auto

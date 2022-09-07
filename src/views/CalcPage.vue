@@ -29,7 +29,8 @@
           <button :disabled="step <= 0"
                   type="button"
                   class="btn btn-back"
-                  @click="prevStep(); removeTotal(); removeItemSteps();">Back
+                  @click="prevStep(); removeTotal(); removeItemSteps();">
+            <span>Back</span>
             <icon-base :iconWidth="24"
                        :iconHeight="24">
               <path stroke="currentColor"
@@ -41,7 +42,8 @@
           </button>
           <button type="button"
                   class="btn btn-next"
-                  @click="nextStep(); updateTotal(); updateItemSteps();">Next
+                  @click="nextStep(); updateTotal(); updateItemSteps();">
+            <span>Next</span>
             <icon-base :iconWidth="24"
                        :iconHeight="24">
               <path stroke="currentColor"
@@ -158,7 +160,6 @@ export default {
   .main-content
     width: 100%
     display: flex
-
     .check-block
       padding: em(10) em(10) em(100) em(10)
       display: flex
@@ -167,16 +168,118 @@ export default {
       background: $lgr
       border-top-left-radius: em(20)
       border-bottom-left-radius: em(20)
-
+      .step
+        min-width: em(110)
+        display: flex
+        padding: em(32) em(8) em(32) em(32)
+        align-items: center
+        justify-content: flex-start
+        align-content: center
+        flex-wrap: nowrap
+        +h4($size: em(20))
+        h5
+          text-transform: uppercase
+          padding-right: em(12)
   .button-w
-    width: 100%
+    width: auto
     display: flex
     justify-content: flex-end
+    .btn
+      display: flex
+      align-content: center
+      align-items: center
+      justify-content: center
+      flex-wrap: nowrap
+      margin-left: em(40)
+      padding: em(10) em(40) em(10) em(40)
+      +body($size: em(16))
+      outline: none
+      background-color: $white
+      border-radius: em(8)
+      cursor: pointer
+      +baseAnimation
+      span
+        margin: 0 em(5) 0 em(5)
+    .btn-next
+      border: em(1) solid $pur
+      &:hover
+        color: $pur
+        transform: rotateY(15deg)
+        box-shadow: em(-10) 0 em(8) $pur
+      &:active
+        transform: scale(0.9)
+    .btn-back
+      border: em(1) solid $or
+      flex-direction: row-reverse
+      &:hover
+        color: $or
+        transform: rotateY(-15deg)
+        box-shadow: em(10) 0 em(8) $or
+      &:active
+        transform: scale(0.9)
 
 @include small-d
-  .check-block
-    padding: px(10) px(10) px(100) px(10)
-    border-top-left-radius: px(20)
-    border-bottom-left-radius: px(20)
+  .container
+    .main-content
+      width: 100%
+      display: flex
+      .check-block
+        padding: px(5) px(5) px(16) px(5)
+        display: flex
+        height: 100%
+        flex-direction: column
+        background: $lgr
+        border-top-left-radius: px(5)
+        border-bottom-left-radius: px(5)
+        .step
+          min-width: px(55)
+          display: flex
+          padding: px(8) px(4) px(8) px(8)
+          align-items: center
+          justify-content: flex-start
+          align-content: center
+          flex-wrap: nowrap
+          +h4($size: px(16))
+          h5
+            text-transform: uppercase
+            padding-right: px(12)
+    .button-w
+      width: 100%
+      display: flex
+      justify-content: space-between
+      +body($size: px(16))
+      .btn
+        display: flex
+        align-content: center
+        align-items: center
+        justify-content: center
+        flex-wrap: nowrap
+        margin-left: 0
+        padding: px(10) px(40) px(10) px(40)
+        +body($size: px(16))
+        outline: none
+        background-color: $white
+        border-radius: px(8)
+        cursor: pointer
+        +baseAnimation
+        span
+          margin: 0 px(5) 0 px(5)
+      .btn-next
+        border: px(1) solid $pur
+        &:hover
+          color: $pur
+          transform: rotateY(15deg)
+          box-shadow: px(-10) 0 px(8) $pur
+        &:active
+          transform: scale(0.9)
+      .btn-back
+        border: px(1) solid $or
+        flex-direction: row-reverse
+        &:hover
+          color: $or
+          transform: rotateY(-15deg)
+          box-shadow: px(10) 0 px(8) $or
+        &:active
+          transform: scale(0.9)
 
 </style>

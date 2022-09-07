@@ -122,7 +122,7 @@ export default {
     align-content: center
     justify-content: space-between
     align-items: center
-    padding: px(35) px(16) px(10) px(16)
+    padding: px(35) px(16) px(35) px(16)
     .logo-w
       z-index: 1
 
