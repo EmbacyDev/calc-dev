@@ -112,7 +112,41 @@ input[type="checkbox"] + label
 input[type="checkbox"]:checked + label
   background-image: none
   outline: 0
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+  box-shadow: inset 0 em(2) em(4) rgba(0, 0, 0, 0.15), 0 em(1) em(2) rgba(0, 0, 0, 0.05)
   background-color: $pur
 
+@include small-d
+  .form-checkbox
+    display: grid
+    grid-auto-columns: 1fr
+    grid-auto-rows: 1fr
+    grid-template-columns: repeat(3, min-content)
+    grid-template-rows: repeat(2, min-content)
+    gap: px(16) px(16)
+    justify-content: stretch
+    border-radius: px(6)
+    label
+      display: inline-block
+
+  input[type="checkbox"]
+    display: none
+
+  input[type="checkbox"] + label
+    min-width: px(150)
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: nowrap
+    cursor: pointer
+    padding: 0 px(15)
+    line-height: px(34)
+    border: px(1) solid #999
+    border-radius: px(6)
+    user-select: none
+
+  input[type="checkbox"]:checked + label
+    background-image: none
+    outline: 0
+    box-shadow: inset 0 px(2) px(4) rgba(0, 0, 0, 0.15), 0 px(1) px(2) rgba(0, 0, 0, 0.05)
+    background-color: $pur
 </style>

@@ -12,6 +12,7 @@
             <p>Agency</p>
           </div>
           <a class="link-gr"
+             target="_blank"
              v-for="item in linkAgency"
              :key="item.name"
              :href="item.href">{{ item.name }}
@@ -22,6 +23,7 @@
             <p>Services</p>
           </div>
           <a class="link-gr"
+             target="_blank"
              v-for="item in linkServices"
              :key="item.name"
              :href="item.href">{{ item.name }}
@@ -32,6 +34,7 @@
             <p>Services</p>
           </div>
           <a class="link-gr"
+             target="_blank"
              v-for="item in linkContact"
              :key="item.name"
              :href="item.href">{{ item.name }}
@@ -41,7 +44,8 @@
           <div class="footer-grid_title">
             <p>Mail</p>
           </div>
-          <a class="link-gr"
+          <a class="link-gr tel"
+             target="_blank"
              href="mailto:hello@embacy.io">hello@embacy.io</a>
         </div>
         <div class="footer-grid_item_bottom"
@@ -49,7 +53,8 @@
              :key="item.name">
           <p>{{ item.name }}</p>
           <p :id="item.id">{{ item.time }}</p>
-          <a class="link-gr"
+          <a class="link-gr tel"
+             target="_blank"
              :href="`tel:${item.telephone}`">{{ item.telephone }}</a>
         </div>
       </div>
@@ -121,7 +126,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 .footer
   display: grid
   grid-template-columns: 0.455fr 1fr
@@ -129,17 +134,24 @@ export default {
   grid-template-rows: auto
   margin-right: auto
   margin-left: auto
-  padding: 12.25em 3.625em 2.62em 3.625em
+  padding: em(196) em(58) em(42) em(58)
   justify-content: space-between
+  .link-gr
+    +linkHover
+    +body ($color: $gr, $size: em(16))
+  p
+    +body ($size: em(16))
+  .tel
+    color: $bl
   .footer_left
-    margin-top: -0.0625em
+    margin-top: em(-1)
     .footer_logo
-      width: 10.75em
+      width: em(172)
   .footer-grid
     display: grid
     grid-auto-columns: 1fr
-    grid-column-gap: 3.5em
-    grid-row-gap: 6.5em
+    grid-column-gap: em(56)
+    grid-row-gap: em(104)
     grid-template-columns: 1fr 1fr 1fr 1fr
     grid-template-rows: auto auto
     .footer-grid_item_top
@@ -151,11 +163,11 @@ export default {
       grid-row-start: span 1
       grid-row-end: span 1
       .footer-grid_title
-        margin-bottom: 0.5em
+        margin-bottom: em(8)
     .footer-grid_item_bottom
       display: flex
       flex-direction: column
-      grid-row-gap: 0.25em
+      grid-row-gap: em(4)
       grid-column-start: span 1
       grid-column-end: span 1
       grid-row-start: span 1
@@ -168,7 +180,6 @@ export default {
     padding-bottom: 5.7vw
     flex-direction: column
     .footer_left
-      background: red
       margin-bottom: 8.33vw
       .footer_logo
         width: 22.3vw
@@ -184,22 +195,28 @@ export default {
 
 @include small-d
   .footer
-    padding-top: 125px
-    padding-bottom: 36px
+    padding-top: px(125)
+    padding-bottom: px(36)
+    .link-gr
+      +linkHover
+      +body ($color: $gr, $size: px(16))
+    p
+      +body ($size: px(16))
+    .tel
+      color: $bl
     .footer_left
-      background: green
       margin-top: 0
-      margin-bottom: 0
+      margin-bottom: px(53)
       .footer_logo
-        width: 172px
+        width: px(172)
     .footer-grid
-      grid-column-gap: 36px
-      grid-row-gap: 56px
+      grid-column-gap: px(36)
+      grid-row-gap: px(56)
       grid-template-columns: 1fr 1fr
       .footer-grid_item_top
-        grid-row-gap: 8px
+        grid-row-gap: px(8)
         .footer-grid_title
-          margin-bottom: 8px
+          margin-bottom: px(8)
       .footer-grid_item_bottom
-        margin-top: 7px
+        margin-top: px(7)
 </style>

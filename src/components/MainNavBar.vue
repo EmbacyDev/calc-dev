@@ -115,32 +115,31 @@ export default {
 //      +linkHover
 
 @include small-d
-.menu
-  display: flex
-  flex-direction: row
-  flex-wrap: nowrap
-  align-content: center
-  justify-content: space-between
-  align-items: center
-  padding: px(35) px(16) px(10) px(16)
-
-  .logo-w
-    z-index: 1
-
-  .logo
-    width: px(20)
-    height: px(20)
-  .links-w
+  .menu
     display: flex
-    .link
+    flex-direction: row
+    flex-wrap: nowrap
+    align-content: center
+    justify-content: space-between
+    align-items: center
+    padding: px(35) px(16) px(10) px(16)
+    .logo-w
+      z-index: 1
+
+    .logo
+      width: px(20)
+      height: px(20)
+    .links-w
       display: flex
-      align-items: flex-start
-      justify-content: center
-      padding: px(5) px(10) px(5) px(10)
-      border: none
-      +body($size: px(16))
-      +linkHover
-      span
-        margin-left: px(4)
+      .link
+        display: flex
+        align-items: flex-start
+        justify-content: center
+        padding: px(5) px(10) px(5) px(10)
+        border: none
+        +body($size: px(16))
+        +linkHover
+        span
+          margin-left: px(4)
 
 </style>

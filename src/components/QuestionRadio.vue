@@ -57,4 +57,29 @@ export default {
   &:hover
     color: $lgr
     background: $yel
+
+@include small-d
+  .form-btn
+    display: inline-block
+    margin-right: px(10)
+    border-radius: px(6)
+    .radio_btn
+      display: none
+      &:checked + label
+        background: $or
+    label
+      min-width: px(150)
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-wrap: nowrap
+      cursor: pointer
+      padding: 0 px(15)
+      line-height: px(34)
+      border: px(1) solid #999
+      border-radius: px(6)
+      user-select: none
+    &:hover
+      color: $lgr
+      background: $yel
 </style>

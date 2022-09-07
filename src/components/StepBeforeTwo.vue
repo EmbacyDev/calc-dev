@@ -57,4 +57,22 @@ export default {
     border-radius: em(6)
     width: auto
 
+@include small-d
+  .step-before
+    .form-heading-w
+      width: 100%
+      h2
+        margin-bottom: px(8)
+
+    .input-w
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      align-content: center
+      flex-wrap: nowrap
+      border: px(1) solid #999
+      border-radius: px(6)
+      width: auto
+
 </style>

@@ -46,11 +46,13 @@ export default {
   display: flex
   .h-w
     display: flex
+    h1
+      +h1internal($size: em(65))
+    .before-text
+      +h1internal($color: $or, $size: em(65))
   .text-w
     margin-top: em(32)
     +h3($size: em(30))
-    h1
-      +h1internal($color: $or, $size: em(65))
     .before-text
       color: $or
   .main-img-w
@@ -104,14 +106,19 @@ export default {
     align-items: center
     .h-w
       display: flex
-      +h1internal($color: $or, $size: px(30))
+      h1
+        +h1internal($size: px(32))
+      .before-text
+        +h1internal($color: $or, $size: px(32))
     .text-w
-      margin-top: px(32)
-      +h3($size: px(18))
+      margin-top: px(16)
+      +h3($size: px(24))
       br
         display: none
+      .before-text
+        color: $or
     .main-img-w
-      margin-bottom: px(32)
+      margin-bottom: px(12)
       max-width: px(150)
   .btn-w
     display: flex
@@ -120,7 +127,7 @@ export default {
     align-items: center
     flex-direction: column
     flex-wrap: nowrap
-    margin-top: px(64)
+    margin-top: px(32)
     .btn-link
       box-shadow: px(1) px(2) px(10) 0 rgba(0, 0, 0, 0.3)
       +body($size: px(24))

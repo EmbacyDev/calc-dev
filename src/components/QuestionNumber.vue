@@ -167,4 +167,39 @@ input[type="number"]::-webkit-inner-spin-button
     border: none
     width: em(40)
     height: em(40)
+
+@include small-d
+  input[type="number"]
+    text-align: center
+    padding: 0
+    outline: none
+    border: none
+    box-sizing: border-box
+    +body($size: px(24))
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button
+    display: none
+
+  .number-input-arrow
+    cursor: pointer
+    border: none
+    background: transparent
+    &:hover
+      color: $ored
+    &:active
+      color: $yel
+      transform: scale(0.9)
+
+  .number-input-w
+    display: flex
+    align-content: center
+    justify-content: center
+    align-items: center
+
+    .number-input
+      background: $milk
+      border: none
+      width: px(40)
+      height: px(40)
 </style>

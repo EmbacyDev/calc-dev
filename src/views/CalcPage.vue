@@ -172,4 +172,11 @@ export default {
     width: 100%
     display: flex
     justify-content: flex-end
+
+@include small-d
+  .check-block
+    padding: px(10) px(10) px(100) px(10)
+    border-top-left-radius: px(20)
+    border-bottom-left-radius: px(20)
+
 </style>

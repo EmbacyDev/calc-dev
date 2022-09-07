@@ -57,6 +57,9 @@ h2
 h2
   +h3($size: em(30))
 
+h3
+  +h4($size: em(20))
+
 a
   white-space: nowrap
 
@@ -79,6 +82,20 @@ input
   border-top-right-radius: em(20)
   border-bottom-right-radius: em(20)
   padding: em(30)
+  .form-heading-w
+    width: 100%
+    h2
+      margin-bottom: em(8)
+  .input-w
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    align-content: center
+    flex-wrap: nowrap
+    border: em(1) solid #999
+    border-radius: em(6)
+    width: auto
 
 .step
   min-width: em(110)
@@ -124,6 +141,9 @@ input
   h2
     +h3($size: px(30))
 
+  h3
+    +h4($size: px(20))
+
   input
     +body($size: px(24))
 
@@ -131,6 +151,13 @@ input
     border-top-right-radius: px(20)
     border-bottom-right-radius: px(20)
     padding: px(30)
+    .form-heading-w
+      width: 100%
+      h2
+        margin-bottom: px(8)
+    .input-w
+      border: px(1) solid #999
+      border-radius: px(6)
 
   .step
     min-width: px(110)
