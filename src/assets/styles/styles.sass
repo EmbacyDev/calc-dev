@@ -12,8 +12,8 @@
 /* scrollBar */
 ::-webkit-scrollbar,
 html ::-webkit-scrollbar
-  height: 5px
-  width: 5px
+  height: em(5)
+  width: em(5)
 
 
 ::-webkit-scrollbar-track,
@@ -24,7 +24,7 @@ html ::-webkit-scrollbar-track
 ::-webkit-scrollbar-thumb,
 html ::-webkit-scrollbar-thumb
   background-color: $ored
-  border-radius: 1px
+  border-radius: em(1)
 
 body
   font-size: 1.1111111111111112vw
@@ -37,8 +37,8 @@ body
   justify-content: center
 
 section
-  padding-right: 2.5em
-  padding-left: 2.5em
+  padding-right: em(40)
+  padding-left: em(40)
 
 .container
   max-width: em(1440)
@@ -92,6 +92,62 @@ input
   h5
     text-transform: uppercase
     padding-right: em(12)
+
+@include small-d
+  ::-webkit-scrollbar,
+  html ::-webkit-scrollbar
+    height: px(5)
+    width: px(5)
+
+
+  ::-webkit-scrollbar-thumb,
+  html ::-webkit-scrollbar-thumb
+    border-radius: px(1)
+
+  body
+    font-size: 1.1111111111111112vw
+
+  section
+    padding-right: px(16)
+    padding-left: px(16)
+
+  .container
+    max-width: px(375)
+    padding: px(0)
+
+  h1
+    +h1internal($size: px(30))
+
+  h2
+    +h2($size: px(54))
+
+  h2
+    +h3($size: px(30))
+
+  input
+    +body($size: px(24))
+
+  .main-step
+    border-top-right-radius: px(20)
+    border-bottom-right-radius: px(20)
+    padding: px(30)
+
+  .step
+    min-width: px(110)
+    padding: px(32) px(8) px(32) px(32)
+    +h4($size: px(20))
+    h5
+      padding-right: px(12)
+
+
+
+
+
+
+
+
+
+
 
 
 

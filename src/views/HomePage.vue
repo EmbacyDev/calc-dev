@@ -46,11 +46,11 @@ export default {
   display: flex
   .h-w
     display: flex
-    .before-text
-      +h1internal($color: $or, $size: em(65))
   .text-w
     margin-top: em(32)
     +h3($size: em(30))
+    h1
+      +h1internal($color: $or, $size: em(65))
     .before-text
       color: $or
   .main-img-w
@@ -102,13 +102,14 @@ export default {
     align-content: center
     justify-content: center
     align-items: center
-    .h1-w
+    .h-w
       display: flex
-      .before-text
-        +h1internal($color: $or, $size: px(65))
+      +h1internal($color: $or, $size: px(30))
     .text-w
       margin-top: px(32)
-      +h3($size: px(30))
+      +h3($size: px(18))
+      br
+        display: none
     .main-img-w
       margin-bottom: px(32)
       max-width: px(150)
@@ -135,8 +136,8 @@ export default {
       margin-top: px(8)
 @keyframes rotation
   0%
-    transform: rotate(0deg) scale(1)
+    transform: rotate(0deg)
   100%
-    transform: rotate(360deg) scale(0.9)
+    transform: rotate(360deg)
 
 </style>

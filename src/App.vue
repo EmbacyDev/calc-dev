@@ -6,6 +6,6 @@
 
 <style lang="sass">
 #app
-  width: 100%
-  height: 100%
+  width: auto
+  height: auto
 </style>
