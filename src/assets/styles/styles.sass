@@ -74,6 +74,13 @@ svg, span
 input
   +body($size: em(24))
 
+.flex-row
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  flex-wrap: nowrap
+
+
 .main-step
   height: auto
   width: 100%
@@ -104,6 +111,7 @@ input
       border: em(1) solid #999
       border-radius: em(6)
       width: auto
+
 
 @include small-d
   ::-webkit-scrollbar,
@@ -161,7 +169,10 @@ input
     .form-heading-w
       width: 100%
       h2
+        +h3($size: px(16))
         margin-bottom: px(8)
+      p
+        +body($size: px(10))
     .input-w
       display: flex
       flex-direction: column

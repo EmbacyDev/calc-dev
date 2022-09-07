@@ -175,7 +175,7 @@ input[type="number"]::-webkit-inner-spin-button
     outline: none
     border: none
     box-sizing: border-box
-    +body($size: px(24))
+    +body($size: px(16))
 
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button
@@ -200,6 +200,6 @@ input[type="number"]::-webkit-inner-spin-button
     .number-input
       background: $milk
       border: none
-      width: px(40)
-      height: px(40)
+      width: px(10)
+      height: px(10)
 </style>
