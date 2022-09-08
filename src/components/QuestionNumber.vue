@@ -171,7 +171,7 @@ input[type="number"]::-webkit-inner-spin-button
 @include small-d
   input[type="number"]
     text-align: center
-    padding: 0
+    padding: px(2)
     outline: none
     border: none
     box-sizing: border-box
@@ -198,8 +198,8 @@ input[type="number"]::-webkit-inner-spin-button
     align-items: center
 
     .number-input
-      background: $milk
+      background: transparent
       border: none
-      width: px(10)
-      height: px(10)
+      width: px(25)
+      height: px(15)
 </style>

@@ -31,9 +31,11 @@ body
   background: $white
 
 .page
-  //min-height: 100vh
+  width: 100%
+  align-items: stretch
+  flex-direction: column
+  flex-wrap: nowrap
   display: flex
-  align-items: flex-start
   justify-content: center
 
 section
@@ -68,8 +70,9 @@ img
   width: 100%
   object-fit: contain
 
-svg, span
+svg, span, label
   display: inline-block
+  text-align: center
 
 input
   +body($size: em(24))
@@ -85,14 +88,14 @@ input
   height: auto
   width: 100%
   overflow: hidden
-  background: $milk
   border-top-right-radius: em(20)
   border-bottom-right-radius: em(20)
   padding: em(30)
+  background: $milk
   .form-w
     border: em(1) solid #999
-    padding: em(10)
     border-radius: em(6)
+    padding: em(10)
     display: flex
     flex-direction: column
     align-items: flex-start
@@ -111,7 +114,11 @@ input
       border: em(1) solid #999
       border-radius: em(6)
       width: auto
-
+  .flex-row
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    flex-wrap: nowrap
 
 @include small-d
   ::-webkit-scrollbar,
@@ -133,7 +140,14 @@ input
 
   .container
     max-width: px(375)
-    padding: px(0)
+    padding: px(5)
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    align-content: center
+    justify-content: center
+    align-items: center
+    flex-wrap: nowrap
 
   h1
     +h1internal($size: px(30))
@@ -150,36 +164,27 @@ input
   input
     +body($size: px(24))
 
-.main-step
-  height: auto
-  width: 100%
-  overflow: hidden
-  background: $milk
-  border-top-right-radius: px(5)
-  border-bottom-right-radius: px(5)
-  padding: px(5)
-  .form-w
+  .main-step
+    padding: px(2) px(2) px(2) px(2)
+    margin: px(16) px(0) px(16) px(0)
     border: px(1) solid #999
-    padding: px(10)
     border-radius: px(6)
-    display: flex
-    flex-direction: column
-    align-items: flex-start
-    margin-bottom: px(32)
-    .form-heading-w
-      width: 100%
-      h2
-        +h3($size: px(16))
-        margin-bottom: px(8)
-      p
-        +body($size: px(10))
-    .input-w
-      display: flex
-      flex-direction: column
-      align-items: center
+    .form-w
       justify-content: center
+      align-items: center
       align-content: center
-      flex-wrap: nowrap
       border: px(1) solid #999
       border-radius: px(6)
-      width: auto
+      padding: px(5)
+      margin-bottom: px(32)
+      .form-heading-w
+        width: 100%
+        h2
+          +h3($size: px(12))
+          margin-bottom: px(8)
+        p
+          +body($size: px(10))
+      .input-w
+        border: px(1) solid #999
+        border-radius: px(6)
+        width: auto

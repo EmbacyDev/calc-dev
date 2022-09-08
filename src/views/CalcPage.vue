@@ -20,11 +20,11 @@
               </icon-base>
             </div>
           </div>
-          <keep-alive>
-            <component ref="stepComponent"
-                       :is="renderStepComponent"/>
-          </keep-alive>
         </div>
+        <keep-alive>
+          <component ref="stepComponent"
+                     :is="renderStepComponent"/>
+        </keep-alive>
         <div class="button-w">
           <button :disabled="step <= 0"
                   type="button"
@@ -223,23 +223,30 @@ export default {
     .main-content
       width: 100%
       display: flex
+      align-items: center
+      justify-content: center
+      align-content: center
       .check-block
-        padding: px(5) px(5) px(16) px(5)
+        padding: px(5) px(5) px(5) px(5)
         display: flex
-        height: 100%
-        flex-direction: column
-        background: $lgr
-        border-top-left-radius: px(5)
-        border-bottom-left-radius: px(5)
+        height: auto
+        width: 100%
+        flex-direction: row
+        justify-content: space-evenly
+        align-items: center
+        align-content: center
+        flex-wrap: nowrap
+        background: $milk
+        border-radius: px(5)
         .step
-          min-width: px(55)
+          min-width: px(50)
           display: flex
           padding: px(8) px(4) px(8) px(8)
           align-items: center
           justify-content: flex-start
           align-content: center
           flex-wrap: nowrap
-          +h4($size: px(16))
+          +h4($size: px(12))
           h5
             text-transform: uppercase
             padding-right: px(12)
@@ -255,7 +262,7 @@ export default {
         justify-content: center
         flex-wrap: nowrap
         margin-left: 0
-        padding: px(10) px(40) px(10) px(40)
+        padding: px(10) px(10) px(10) px(10)
         +body($size: px(16))
         outline: none
         background-color: $white

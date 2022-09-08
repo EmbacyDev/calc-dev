@@ -80,7 +80,7 @@ export default {
   }
 };
 </script>
-<style lang="sass">
+<style scoped lang="sass">
 .form-checkbox
   display: grid
   grid-auto-columns: 1fr
@@ -116,29 +116,33 @@ input[type="checkbox"]:checked + label
   background-color: $pur
 
 @include small-d
+.input-checkbox-w
+  width: 100%
   .form-checkbox
+    width: 100%
     display: grid
     grid-auto-columns: 1fr
     grid-auto-rows: 1fr
-    grid-template-columns: repeat(3, min-content)
-    grid-template-rows: repeat(2, min-content)
-    gap: px(16) px(16)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    gap: px(4) px(4)
     justify-content: stretch
     border-radius: px(6)
     label
-      display: inline-block
+      +body($size: px(16))
+      white-space: nowrap
 
   input[type="checkbox"]
     display: none
 
   input[type="checkbox"] + label
-    min-width: px(150)
+    min-width: auto
     display: flex
     justify-content: center
     align-items: center
     flex-wrap: nowrap
     cursor: pointer
-    padding: 0 px(15)
+    //padding: 0 px(15)
     line-height: px(34)
     border: px(1) solid #999
     border-radius: px(6)
