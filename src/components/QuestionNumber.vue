@@ -163,7 +163,7 @@ input[type="number"]::-webkit-inner-spin-button
   align-items: center
 
   .number-input
-    background: $milk
+    background: transparent
     border: none
     width: em(40)
     height: em(40)

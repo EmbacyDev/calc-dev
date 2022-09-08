@@ -82,12 +82,13 @@ export default {
 </script>
 <style scoped lang="sass">
 .form-checkbox
+  width: 100%
   display: grid
   grid-auto-columns: 1fr
   grid-auto-rows: 1fr
-  grid-template-columns: repeat(3, min-content)
-  grid-template-rows: repeat(2, min-content)
-  gap: em(16) em(16)
+  grid-template-columns: repeat(3, 1fr)
+  grid-template-rows: repeat(3, 1fr)
+  gap: em(4) em(4)
   justify-content: stretch
   border-radius: em(6)
   label
@@ -116,41 +117,41 @@ input[type="checkbox"]:checked + label
   background-color: $pur
 
 @include small-d
-.input-checkbox-w
-  width: 100%
-  .form-checkbox
+  .input-checkbox-w
     width: 100%
-    display: grid
-    grid-auto-columns: 1fr
-    grid-auto-rows: 1fr
-    grid-template-columns: repeat(2, 1fr)
-    grid-template-rows: repeat(3, 1fr)
-    gap: px(4) px(4)
-    justify-content: stretch
-    border-radius: px(6)
-    label
-      +body($size: px(16))
-      white-space: nowrap
+    .form-checkbox
+      width: 100%
+      display: grid
+      grid-auto-columns: 1fr
+      grid-auto-rows: 1fr
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: repeat(3, 1fr)
+      gap: px(4) px(4)
+      justify-content: stretch
+      border-radius: px(6)
+      label
+        +body($size: px(16))
+        white-space: nowrap
 
-  input[type="checkbox"]
-    display: none
+    input[type="checkbox"]
+      display: none
 
-  input[type="checkbox"] + label
-    min-width: auto
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-wrap: nowrap
-    cursor: pointer
-    //padding: 0 px(15)
-    line-height: px(34)
-    border: px(1) solid #999
-    border-radius: px(6)
-    user-select: none
+    input[type="checkbox"] + label
+      min-width: auto
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-wrap: nowrap
+      cursor: pointer
+      //padding: 0 px(15)
+      line-height: px(34)
+      border: px(1) solid #999
+      border-radius: px(6)
+      user-select: none
 
-  input[type="checkbox"]:checked + label
-    background-image: none
-    outline: 0
-    box-shadow: inset 0 px(2) px(4) rgba(0, 0, 0, 0.15), 0 px(1) px(2) rgba(0, 0, 0, 0.05)
-    background-color: $pur
+    input[type="checkbox"]:checked + label
+      background-image: none
+      outline: 0
+      box-shadow: inset 0 px(2) px(4) rgba(0, 0, 0, 0.15), 0 px(1) px(2) rgba(0, 0, 0, 0.05)
+      background-color: $pur
 </style>

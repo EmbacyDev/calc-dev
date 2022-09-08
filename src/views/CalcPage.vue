@@ -161,13 +161,18 @@ export default {
     width: 100%
     display: flex
     .check-block
-      padding: em(10) em(10) em(100) em(10)
+      padding: em(5) em(5) em(5) em(5)
       display: flex
-      height: 100%
-      flex-direction: column
-      background: $lgr
-      border-top-left-radius: em(20)
-      border-bottom-left-radius: em(20)
+      height: auto
+      width: 100%
+      flex-direction: row
+      justify-content: space-evenly
+      align-items: center
+      align-content: center
+      flex-wrap: nowrap
+      background: $milk
+      border: px(1) solid #999
+      border-radius: px(6)
       .step
         min-width: em(110)
         display: flex

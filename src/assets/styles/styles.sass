@@ -32,7 +32,7 @@ body
 
 .page
   width: 100%
-  align-items: stretch
+  align-items: center
   flex-direction: column
   flex-wrap: nowrap
   display: flex
@@ -43,7 +43,7 @@ section
   padding-left: em(40)
 
 .container
-  max-width: em(1440)
+  overflow: hidden
   padding: em(50)
   margin: 0
 
@@ -86,20 +86,20 @@ input
 
 .main-step
   height: auto
-  width: 100%
+  width: auto
   overflow: hidden
-  border-top-right-radius: em(20)
-  border-bottom-right-radius: em(20)
-  padding: em(30)
-  background: $milk
+  padding: em(2) em(2) em(2) em(2)
+  margin: em(16) auto em(16) auto
+  border: em(1) solid #999
+  border-radius: em(6)
   .form-w
     border: em(1) solid #999
     border-radius: em(6)
     padding: em(10)
     display: flex
     flex-direction: column
-    align-items: flex-start
-    margin-bottom: em(32)
+    align-items: center
+    margin: em(16) em(0) em(16) em(0)
     .form-heading-w
       width: 100%
       h2
@@ -134,12 +134,19 @@ input
   body
     font-size: 1.1111111111111112vw
 
+  .page
+    width: 100%
+    align-items: stretch
+    flex-direction: column
+    flex-wrap: nowrap
+    display: flex
+    justify-content: center
+
   section
     padding-right: px(16)
     padding-left: px(16)
 
   .container
-    max-width: px(375)
     padding: px(5)
     overflow: hidden
     display: flex
@@ -166,7 +173,7 @@ input
 
   .main-step
     padding: px(2) px(2) px(2) px(2)
-    margin: px(16) px(0) px(16) px(0)
+    margin: px(16) auto px(16) auto
     border: px(1) solid #999
     border-radius: px(6)
     .form-w
@@ -176,7 +183,7 @@ input
       border: px(1) solid #999
       border-radius: px(6)
       padding: px(5)
-      margin-bottom: px(32)
+      margin: px(16) auto px(16) auto
       .form-heading-w
         width: 100%
         h2

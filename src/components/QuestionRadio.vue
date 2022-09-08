@@ -35,22 +35,28 @@ export default {
 </script>
 <style lang="sass">
 .input-radio-w
+  width: 100%
+  display: grid
+  grid-auto-columns: 1fr
+  grid-auto-rows: 1fr
+  grid-template-columns: repeat(2, 1fr)
+  gap: em(12) em(4)
+  justify-content: stretch
+  border-radius: em(6)
   .form-btn
     display: inline-block
-    margin-right: em(10)
     border-radius: em(6)
     .radio_btn
       display: none
       &:checked + label
         background: $or
     label
-      min-width: em(150)
+      min-width: auto
       display: flex
       justify-content: center
       align-items: center
       flex-wrap: nowrap
       cursor: pointer
-      padding: 0 em(15)
       line-height: em(34)
       border: em(1) solid #999
       border-radius: em(6)
