@@ -195,8 +195,9 @@ export default {
 
 @include small-d
   .footer
-    padding-top: px(125)
-    padding-bottom: px(36)
+    grid-template-columns: 0
+    grid-column-gap: px(20)
+    padding: px(125) px(0) px(36) px(0)
     .link-gr
       +linkHover
       +body ($color: $gr, $size: px(16))
