@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomePage.vue';
+import store from '../store';
 
 const routes = [
   {
@@ -25,6 +26,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+router.beforeEach((to, from, next) => {
+  if (store.state.total.length === 0 && to.name === 'total') {
+    next({ name: 'home' });
+  } else {
+    next();
+  }
 });
 
 export default router;
