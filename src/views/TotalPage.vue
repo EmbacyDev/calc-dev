@@ -8,7 +8,7 @@
         <h3>{{ pageType }}</h3>
         <ul v-for="item in calcTotal"
             :key="item">
-          <li>Вопрос: {{ item.q }}, выбраное значение {{ item.v }}</li>
+          <li>Вопрос: <strong>{{ item.q }}</strong>, выбраное значение {{ item.v }}</li>
         </ul>
         <router-link class="btn-link"
                      @click="removeTotalAll"

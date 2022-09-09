@@ -123,8 +123,8 @@ export default {
       }
     },
     removeItemSteps() {
-      if (this.step < 1) {
-        this.itemsStep.splice(2, 1);
+      if (this.step < 1 && this.itemsStep.length > 2) {
+        this.itemsStep.splice(3, 1);
         console.log('РАБОТАЕТ');
       }
     },
