@@ -142,16 +142,24 @@ input[type="number"]
   box-sizing: border-box
   +body($size: em(24))
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button
-  display: none
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  margin: 0
+
+input[type=number]
+  -moz-appearance: textfield
 
 .number-input-arrow
   cursor: pointer
   border: none
   background: transparent
+
   &:hover
     color: $ored
+
   &:active
     color: $yel
     transform: scale(0.9)
@@ -177,16 +185,14 @@ input[type="number"]::-webkit-inner-spin-button
     box-sizing: border-box
     +body($size: px(16))
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button
-    display: none
-
   .number-input-arrow
     cursor: pointer
     border: none
     background: transparent
+
     &:hover
       color: $ored
+
     &:active
       color: $yel
       transform: scale(0.9)
