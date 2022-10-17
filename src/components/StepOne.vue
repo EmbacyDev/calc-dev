@@ -13,10 +13,12 @@
             Play with both and see what’s best for you.
           </p>
         </div>
-        <h3>Technology</h3>
-        <question-radio :itemsRadioInput="quest0"
-                        v-model:checkedRadio="valueQuest0"
-                        idGroup="quest4"/>
+        <div class="form-w">
+          <h3>Technology</h3>
+          <question-radio :itemsRadioInput="quest0"
+                          v-model:checkedRadio="valueQuest0"
+                          idGroup="quest4"/>
+        </div>
       </div>
     </form>
   </div>
