@@ -110,15 +110,15 @@ export default {
       this.ADD_TOTAL(
         [
           {
-            q: 'Custom code',
+            q: 'Layout option',
             v: this.valueQuest1
           },
           {
-            q: 'Кол-во шаблонных страниц',
+            q: 'Number of unique page?',
             v: this.valueQuest2
           },
           {
-            q: 'Кол-во уникальных страниц',
+            q: 'Number of template page?',
             v: this.valueQuest3
           },
           // {
@@ -126,11 +126,11 @@ export default {
           //   v: this.valueQuest4
           // },
           {
-            q: 'Моушн дизайн',
+            q: 'Motion design',
             v: this.valueQuest5
           },
           {
-            q: 'Страницы с промо контентом',
+            q: 'What type of promo content will be on the website?',
             v: this.valueQuest6
           }
         ]

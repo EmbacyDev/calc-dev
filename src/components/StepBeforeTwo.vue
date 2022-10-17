@@ -8,10 +8,12 @@
             What type of website you are going for?
           </p>
         </div>
-        <h3>Layout option</h3>
-        <question-radio :itemsRadioInput="questB"
-                        v-model:checkedRadio="valueQuestB"
-                        idGroup="quest0"/>
+        <div class="form-w">
+          <h3>Layout option</h3>
+          <question-radio :itemsRadioInput="questB"
+                          v-model:checkedRadio="valueQuestB"
+                          idGroup="quest0"/>
+        </div>
       </div>
     </form>
   </div>
