@@ -144,7 +144,7 @@ export default {
         },
         {
           id: 'radio-17',
-          title: 'Внешний',
+          title: 'Client’s hosting',
           value: 250
         }
       ]

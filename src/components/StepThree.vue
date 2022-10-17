@@ -2,7 +2,7 @@
   <div class='main-step step-three'>
     <form>
       <div v-if="getVariant === 1"
-           class="form-w">
+           class="form-w first-line-form">
         <div class="form-heading-w">
           <h2>Integrations</h2>
           <p>
@@ -13,7 +13,17 @@
           </p>
         </div>
       </div>
-      <div class="form-w">
+      <div v-if="getVariant > 1"
+           class="form-w first-line-form">
+        <div class="form-heading-w">
+          <h2>Integrations</h2>
+          <p>
+            Which apps or services we are connecting
+          </p>
+        </div>
+      </div>
+      <div  v-if="getVariant === 1"
+            class="form-w">
         <div class="form-heading-w">
           <h4 class="sub-title">
             CMS technology
