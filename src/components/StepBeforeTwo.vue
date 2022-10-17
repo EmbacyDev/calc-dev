@@ -1,12 +1,14 @@
 <template>
   <div class='main-step step-before'>
     <form>
-      <div class="form-w">
+      <div class="form-w first-line-form">
         <div class="form-heading-w">
-          <h2>Выбор варианта сайта</h2>
-          <p>title text</p>
-          <hr>
+          <h2>Type</h2>
+          <p>
+            What type of website you are going for?
+          </p>
         </div>
+        <h3>Layout option</h3>
         <question-radio :itemsRadioInput="questB"
                         v-model:checkedRadio="valueQuestB"
                         idGroup="quest0"/>
@@ -40,39 +42,4 @@ export default {
 </script>
 
 <style lang="sass">
-.step-before
-  .form-heading-w
-    width: 100%
-    h2
-      margin-bottom: em(8)
-
-  .input-w
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    align-content: center
-    flex-wrap: nowrap
-    border: em(1) solid #999
-    border-radius: em(6)
-    width: auto
-
-@include small-d
-  .step-before
-    .form-heading-w
-      width: 100%
-      h2
-        margin-bottom: px(8)
-
-    .input-w
-      display: flex
-      flex-direction: column
-      align-items: center
-      justify-content: center
-      align-content: center
-      flex-wrap: nowrap
-      border: px(1) solid #999
-      border-radius: px(6)
-      width: auto
-
 </style>

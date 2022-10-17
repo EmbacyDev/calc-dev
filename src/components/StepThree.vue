@@ -4,9 +4,20 @@
       <div v-if="getVariant === 1"
            class="form-w">
         <div class="form-heading-w">
-          <h2>Пожелание к CMS технологии</h2>
-          <p>title text</p>
-          <hr>
+          <h2>Integrations</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Faucibus et molestie ac feugiat sed
+            lectus vestibulum.
+          </p>
+        </div>
+      </div>
+      <div class="form-w">
+        <div class="form-heading-w">
+          <h4 class="sub-title">
+            CMS technology
+          </h4>
         </div>
         <question-radio :itemsRadioInput="variantQuest7"
                         v-model:checkedRadio="valueQuest7"
@@ -14,20 +25,19 @@
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Интеграции</h2>
-          <p>title text</p>
-          <hr>
+          <h4 class="sub-title">
+            Integrations
+          </h4>
         </div>
         <question-check-box :itemsCheckBoxInput="variantQuest8"
                             resetBoxName="No int"
                             v-model:checkedList="valueQuest8"/>
-
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Хостинг сайта</h2>
-          <p>title text</p>
-          <hr>
+          <h4 class="sub-title">
+            Website hosting
+          </h4>
         </div>
         <question-radio :itemsRadioInput="variantQuest9"
                         v-model:checkedRadio="valueQuest9"
@@ -84,15 +94,15 @@ export default {
     submitForm() {
       this.ADD_TOTAL([
         {
-          q: 'Пожелание к CMS технологии',
+          q: 'CMS technology',
           v: this.valueQuest7
         },
         {
-          q: 'Интеграции',
+          q: 'Integrations',
           v: this.valueQuest8
         },
         {
-          q: 'Хостинг сайта',
+          q: 'Website hosting',
           v: this.valueQuest9
         }
       ]);

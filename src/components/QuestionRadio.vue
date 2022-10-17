@@ -39,9 +39,9 @@ export default {
   display: grid
   grid-auto-columns: 1fr
   grid-auto-rows: 1fr
-  grid-template-columns: repeat(3, auto)
-  gap: em(16) em(4)
-  justify-content: start
+  grid-template-columns: repeat(5, auto)
+  gap: em(16) em(16)
+  justify-content: flex-start
   .form-btn
     display: inline-block
     border-radius: em(4)
@@ -53,7 +53,7 @@ export default {
       &:hover + label
         background: $or-bg
     label
-      min-width: em(130)
+      min-width: em(100)
       padding: em(24) em(32) em(24) em(32)
       display: flex
       justify-content: center
@@ -74,7 +74,7 @@ export default {
     grid-auto-rows: 1fr
     grid-template-columns: repeat(2, auto)
     gap: px(8) px(0)
-    justify-content: start
+    justify-content: flex-start
     flex-direction: column
     .form-btn
       display: inline-block
@@ -87,7 +87,7 @@ export default {
         &:hover + label
           background: $or-bg
       label
-        min-width: px(130)
+        min-width: px(100)
         padding: px(12) px(0) px(12) px(0)
         display: flex
         justify-content: center

@@ -4,10 +4,12 @@
       <div class="form-w first-line-form">
         <div class="form-heading-w">
           <h2>Custom code</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore
             et dolore magna aliqua. Faucibus et molestie ac
-            feugiat sed lectus vestibulum.</p>
+            feugiat sed lectus vestibulum.
+          </p>
         </div>
       </div>
       <div class="form-w">

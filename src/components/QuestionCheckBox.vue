@@ -1,17 +1,15 @@
 <template>
   <div class="input-checkbox-w">
     <fieldset class="form-checkbox">
-      <div>
-        <input id="no"
-               type="checkbox"
-               class="checkbox_btn"
-               value="0"
-               :disabled="isCheckAll"
-               :checked="isCheckAll"
-               v-model="isCheckAll"
-               @click="checkAllReset()">
-        <label for="no">{{ resetBoxName }}</label>
-      </div>
+      <input id="no"
+             type="checkbox"
+             class="checkbox_btn"
+             value="0"
+             :disabled="isCheckAll"
+             :checked="isCheckAll"
+             v-model="isCheckAll"
+             @click="checkAllReset()">
+      <label for="no">{{ resetBoxName }}</label>
       <div v-for="item in itemsCheckBoxInput"
            :key="item.id">
         <input :id="item.id"
@@ -81,77 +79,64 @@ export default {
 };
 </script>
 <style scoped lang="sass">
-.form-checkbox
-  width: 100%
-  display: grid
-  grid-auto-columns: 1fr
-  grid-auto-rows: 1fr
-  grid-template-columns: repeat(3, 1fr)
-  grid-template-rows: repeat(3, 1fr)
-  gap: em(4) em(4)
-  justify-content: stretch
-  border-radius: em(6)
-  label
-    display: inline-block
+.input-checkbox-w
+  .form-checkbox
+    width: 100%
+    display: flex
+    grid-auto-columns: auto
+    grid-auto-rows: auto
+    grid-template-columns: repeat(5, auto)
+    gap: 1em 1em
+    justify-content: flex-start
+    flex-direction: row
+    flex-wrap: wrap
+    .checkbox_btn
+      display: none
+    label
+      min-width: em(100)
+      padding: em(24) em(32) em(24) em(32)
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-wrap: nowrap
+      cursor: pointer
+      line-height: em(34)
+      border: em(1) solid $lgr
+      border-radius: em(4)
+      user-select: none
+      +bodyMedium($size: em(16))
+      background: $milk
 
-input[type="checkbox"]
-  display: none
-
-input[type="checkbox"] + label
-  min-width: em(150)
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-wrap: nowrap
-  cursor: pointer
-  padding: 0 em(15)
-  line-height: em(34)
-  border: em(1) solid #999
-  border-radius: em(6)
-  user-select: none
-
-input[type="checkbox"]:checked + label
-  background-image: none
-  outline: 0
-  box-shadow: inset 0 em(2) em(4) rgba(0, 0, 0, 0.15), 0 em(1) em(2) rgba(0, 0, 0, 0.05)
-  background-color: $pur
+  input[type="checkbox"]:checked + label
+    border: em(1) solid $or
+    background: $or-bg
 
 @include small-d
   .input-checkbox-w
     width: 100%
     .form-checkbox
       width: 100%
-      display: grid
+      display: flex
       grid-auto-columns: 1fr
       grid-auto-rows: 1fr
-      grid-template-columns: repeat(2, 1fr)
-      grid-template-rows: repeat(3, 1fr)
-      gap: px(4) px(4)
-      justify-content: stretch
-      border-radius: px(6)
+      grid-template-columns: repeat(2, auto)
+      gap: px(8) px(0)
+      justify-content: flex-start
+      flex-direction: column
+      .checkbox_btn
+        display: none
       label
-        +body($size: px(16))
-        white-space: nowrap
-
-    input[type="checkbox"]
-      display: none
-
-    input[type="checkbox"] + label
-      min-width: auto
-      display: flex
-      justify-content: center
-      align-items: center
-      flex-wrap: nowrap
-      cursor: pointer
-      //padding: 0 px(15)
-      line-height: px(34)
-      border: px(1) solid #999
-      border-radius: px(6)
-      user-select: none
-
-    input[type="checkbox"]:checked + label
-      background-image: none
-      outline: 0
-      box-shadow: inset 0 px(2) px(4) rgba(0, 0, 0, 0.15), 0 px(1) px(2) rgba(0, 0, 0, 0.05)
-      background-color: $pur
+        min-width: px(100)
+        padding: px(12) px(0) px(12) px(0)
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: nowrap
+        cursor: pointer
+        line-height: px(34)
+        border: px(1) solid $lgr
+        border-radius: px(4)
+        user-select: none
+        +bodyMedium($size: px(16))
+        background: $milk
 </style>

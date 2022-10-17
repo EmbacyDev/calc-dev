@@ -4,13 +4,13 @@ export default {
       questB: [
         {
           id: 'radio-01',
-          title: 'Коорпор сайт',
+          title: 'Landing page',
           value: 3,
           checked: true
         },
         {
           id: 'radio-02',
-          title: 'Landing page',
+          title: 'Corporate website',
           value: 4
         }
       ]

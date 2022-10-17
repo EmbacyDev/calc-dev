@@ -10,7 +10,8 @@
             custom code websites on Vue.js. Bi code os usually
             a go-t for 80& of websites out there, while custom code
             might be useful for something advanced.
-            Play with both and see what’s best for you.</p>
+            Play with both and see what’s best for you.
+          </p>
         </div>
         <h3>Technology</h3>
         <question-radio :itemsRadioInput="quest0"

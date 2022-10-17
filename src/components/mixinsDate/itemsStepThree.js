@@ -10,22 +10,27 @@ export default {
         },
         {
           id: 'radio-10',
-          title: 'buttercms.com',
+          title: 'Butter CMS',
           value: 800
         },
         {
           id: 'radio-11',
-          title: 'laravel.com',
+          title: 'Laravel',
           value: 1000
         },
         {
           id: 'radio-12',
-          title: 'storyblok.com',
+          title: 'Storyblock',
           value: 700
         },
         {
           id: 'radio-13',
-          title: 'other',
+          title: 'Wordpress',
+          value: 1500
+        },
+        {
+          id: 'radio-14',
+          title: 'Other',
           value: 1500
         }
       ],
@@ -68,21 +73,21 @@ export default {
         },
         {
           id: 'check-12',
-          title: '3rd party apps',
+          title: 'Other',
           value: 306,
           checked: false
         }
       ],
       quest9: [
         {
-          id: 'radio-14',
-          title: 'Передача дистрибутива без настройки',
+          id: 'radio-16',
+          title: 'Yes, please',
           value: 0,
           checked: true
         },
         {
-          id: 'radio-15',
-          title: 'Развертывание сайта на хостинге',
+          id: 'radio-17',
+          title: 'No, build bundle would be enough',
           value: 250
         }
       ],
@@ -132,13 +137,13 @@ export default {
       ],
       quest9V2: [
         {
-          id: 'radio-14',
+          id: 'radio-16',
           title: 'Webflow',
           value: 0,
           checked: true
         },
         {
-          id: 'radio-15',
+          id: 'radio-17',
           title: 'Внешний',
           value: 250
         }
