@@ -1,3 +1,5 @@
+@import 'mixins'
+
 @function em($pixels, $context: $browser-context-em)
   @return calc($pixels / $context) * 1em
 
@@ -39,12 +41,12 @@ body
   justify-content: center
 
 section
-  padding-right: em(40)
-  padding-left: em(40)
+  width: 100%
 
 .container
   overflow: hidden
-  padding: em(50)
+  padding-right: em(40)
+  padding-left: em(40)
   margin: 0
 
 .h-w
@@ -56,10 +58,10 @@ h1
 h2
   +h2($size: em(54))
 
-h2
+h3
   +h3($size: em(30))
 
-h3
+h4
   +h4($size: em(20))
 
 a
@@ -146,11 +148,11 @@ input
     justify-content: center
 
   section
-    padding-right: px(16)
-    padding-left: px(16)
+    width: 100%
 
   .container
-    padding: px(5)
+    padding-right: px(16)
+    padding-left: px(16)
     overflow: hidden
     display: flex
     flex-direction: column
@@ -160,19 +162,19 @@ input
     flex-wrap: nowrap
 
   h1
-    +h1internal($size: px(30))
+    +h1internal($size: px(32))
 
   h2
     +h2($size: px(54))
 
-  h2
-    +h3($size: px(30))
-
   h3
-    +h4($size: px(20))
+    +h3($size: px(18))
+
+  h4
+    +h4($size: px(16))
 
   li
-    +body($size: px(24))
+    +body($size: px(16))
 
   input
     +body($size: px(24))

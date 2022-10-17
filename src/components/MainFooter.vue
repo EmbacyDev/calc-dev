@@ -197,7 +197,7 @@ export default {
   .footer
     grid-template-columns: 0
     grid-column-gap: px(20)
-    padding: px(125) px(0) px(36) px(0)
+    padding: px(125) px(29) px(36) px(29)
     .link-gr
       +linkHover
       +body ($color: $gr, $size: px(16))
