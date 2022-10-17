@@ -1,15 +1,18 @@
 <template>
   <div class='main-step step-one'>
     <form>
-      <div class="form-w">
+      <div class="form-w first-line-form">
         <div class="form-heading-w">
           <div class="h-w">
-            <span class="before-text">H1.</span>
-            <h3>Pick you technology?</h3>
+            <h2>Pick your technology?</h2>
           </div>
-          <p>title text</p>
-          <hr>
+          <p>We develop no code website on Webflow and
+            custom code websites on Vue.js. Bi code os usually
+            a go-t for 80& of websites out there, while custom code
+            might be useful for something advanced.
+            Play with both and see what’s best for you.</p>
         </div>
+        <h3>Technology</h3>
         <question-radio :itemsRadioInput="quest0"
                         v-model:checkedRadio="valueQuest0"
                         idGroup="quest4"/>

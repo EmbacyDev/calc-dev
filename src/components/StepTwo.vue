@@ -1,21 +1,31 @@
 <template>
   <div class='main-step step-two'>
     <form>
+      <div class="form-w first-line-form">
+        <div class="form-heading-w">
+          <h2>Custom code</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Faucibus et molestie ac
+            feugiat sed lectus vestibulum.</p>
+        </div>
+      </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Лейаут (табы)</h2>
-          <p>title text</p>
-          <hr>
+          <h4 class="sub-title">
+            Layout option
+          </h4>
         </div>
         <question-radio :itemsRadioInput="quest1"
                         v-model:checkedRadio="valueQuest1"
                         idGroup="quest1"/>
       </div>
       <div v-if="getVariant <= 3"
-           class="form-w flex-row">
+           class="form-w">
         <div class="form-heading-w">
-          <h2>Кол-во шаблонных страниц</h2>
-          <p>title text</p>
+          <h4 class="sub-title">
+            Number of unique page?
+          </h4>
         </div>
         <question-number :value="quest2.value"
                          :min=1
@@ -25,10 +35,11 @@
                          :idInput="quest2.id"/>
       </div>
       <div v-if="getVariant <= 3"
-           class="form-w flex-row">
+           class="form-w">
         <div class="form-heading-w">
-          <h2>Кол-во уникальных страниц</h2>
-          <p>title text</p>
+          <h4 class="sub-title">
+            Number of template page?
+          </h4>
         </div>
         <question-number :value="quest3.value"
                          :min=1
@@ -40,19 +51,9 @@
       <div v-if="getVariant <= 3"
            class="form-w">
         <div class="form-heading-w">
-          <h2>Адаптив</h2>
-          <p>title text</p>
-          <hr>
-        </div>
-        <question-radio :itemsRadioInput="quest4"
-                        v-model:checkedRadio="valueQuest4"
-                        idGroup="quest4"/>
-      </div>
-      <div class="form-w">
-        <div class="form-heading-w">
-          <h2>Моушн дизайн</h2>
-          <p>title text</p>
-          <hr>
+          <h4 class="sub-title">
+            Motion design
+          </h4>
         </div>
         <question-radio :itemsRadioInput="quest5"
                         v-model:checkedRadio="valueQuest5"
@@ -60,14 +61,13 @@
       </div>
       <div class="form-w">
         <div class="form-heading-w">
-          <h2>Страницы с промо контентом</h2>
-          <p>title text</p>
-          <hr>
+          <h4 class="sub-title">
+            What type of promo content will be on the website?
+          </h4>
         </div>
         <question-check-box :itemsCheckBoxInput="quest6"
                             resetBoxName="No int"
                             v-model:checkedList="valueQuest6"/>
-
       </div>
     </form>
   </div>
@@ -86,7 +86,7 @@ export default {
       valueQuest1: 3000,
       valueQuest2: 1,
       valueQuest3: 1,
-      valueQuest4: 2000,
+      // valueQuest4: 2000,
       valueQuest5: 0,
       valueQuest6: []
     };
@@ -108,7 +108,7 @@ export default {
       this.ADD_TOTAL(
         [
           {
-            q: 'Лейаут (табы)',
+            q: 'Custom code',
             v: this.valueQuest1
           },
           {
@@ -119,10 +119,10 @@ export default {
             q: 'Кол-во уникальных страниц',
             v: this.valueQuest3
           },
-          {
-            q: 'Адаптив',
-            v: this.valueQuest4
-          },
+          // {
+          //   q: 'Адаптив',
+          //   v: this.valueQuest4
+          // },
           {
             q: 'Моушн дизайн',
             v: this.valueQuest5

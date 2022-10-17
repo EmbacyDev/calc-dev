@@ -39,62 +39,65 @@ export default {
   display: grid
   grid-auto-columns: 1fr
   grid-auto-rows: 1fr
-  grid-template-columns: repeat(2, 1fr)
-  gap: em(12) em(4)
-  justify-content: stretch
-  border-radius: em(6)
+  grid-template-columns: repeat(3, auto)
+  gap: em(16) em(4)
+  justify-content: start
   .form-btn
     display: inline-block
-    border-radius: em(6)
+    border-radius: em(4)
     .radio_btn
       display: none
       &:checked + label
-        background: $or
+        border: em(1) solid $or
+        background: $or-bg
+      &:hover + label
+        background: $or-bg
     label
-      min-width: auto
+      min-width: em(130)
+      padding: em(24) em(32) em(24) em(32)
       display: flex
       justify-content: center
       align-items: center
       flex-wrap: nowrap
       cursor: pointer
       line-height: em(34)
-      border: em(1) solid #999
-      border-radius: em(6)
+      border: em(1) solid $lgr
+      border-radius: em(4)
       user-select: none
-    &:hover
-      color: $lgr
-      background: $yel
-
+      +bodyMedium($size: em(16))
+      background: $milk
 @include small-d
   .input-radio-w
     width: 100%
     display: flex
+    grid-auto-columns: 1fr
+    grid-auto-rows: 1fr
+    grid-template-columns: repeat(2, auto)
+    gap: px(8) px(0)
+    justify-content: start
     flex-direction: column
-    justify-content: center
-    align-items: stretch
     .form-btn
       display: inline-block
-      margin-right: px(0)
-      border-radius: px(6)
+      border-radius: px(4)
       .radio_btn
         display: none
         &:checked + label
-          background: $or
+          border: px(1) solid $or
+          background: $or-bg
+        &:hover + label
+          background: $or-bg
       label
-        min-width: auto
+        min-width: px(130)
+        padding: px(12) px(0) px(12) px(0)
         display: flex
         justify-content: center
         align-items: center
         flex-wrap: nowrap
         cursor: pointer
-        padding: px(10) px(10) px(10) px(10)
-        margin: px(10)
         line-height: px(34)
-        border: px(1) solid #999
-        border-radius: px(6)
+        border: px(1) solid $lgr
+        border-radius: px(4)
         user-select: none
-        +body($size: px(16))
-      &:hover
-        color: $lgr
-        background: $yel
+        +bodyMedium($size: px(16))
+        background: $milk
 </style>

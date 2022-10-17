@@ -80,7 +80,7 @@ svg, span, label
   text-align: center
 
 input
-  +body($size: em(24))
+  +body($size: em(16))
 
 .flex-row
   display: flex
@@ -88,42 +88,36 @@ input
   align-items: flex-start
   flex-wrap: nowrap
 
-
-.main-step
-  height: auto
-  width: auto
-  overflow: hidden
-  padding: em(2) em(2) em(2) em(2)
-  margin: em(16) auto em(16) auto
-  border: em(1) solid #999
-  border-radius: em(6)
-  .form-w
-    border: em(1) solid #999
-    border-radius: em(6)
-    padding: em(10)
-    display: flex
-    flex-direction: column
-    align-items: center
-    margin: em(16) em(0) em(16) em(0)
-    .form-heading-w
-      width: 100%
-      h2
-        margin-bottom: em(8)
-    .input-w
+.layoutSteps
+  padding: em(72) em(72) em(72) em(72)
+  margin: em(40) auto auto auto
+  border: em(1) solid $lgr
+  border-radius: em(4)
+  .main-step
+    height: auto
+    width: auto
+    overflow: hidden
+    .form-w
+      max-width: em(768)
+      margin-top: em(44)
       display: flex
       flex-direction: column
-      align-items: center
-      justify-content: center
-      align-content: center
-      flex-wrap: nowrap
-      border: em(1) solid #999
-      border-radius: em(6)
-      width: auto
-  .flex-row
-    display: flex
-    flex-direction: row
-    align-items: flex-start
-    flex-wrap: nowrap
+      align-items: flex-start
+      .form-heading-w
+        width: 100%
+        margin-bottom: em(16)
+        h2
+          margin-bottom: em(6)
+        p
+          +body($size: em(16))
+        .sub-title
+          +body($size: em(16))
+      h3
+        +body($size: em(16))
+        margin-bottom: em(16)
+    .form-w.first-line-form
+      margin-top: em(0)
+
 
 @include small-d
   ::-webkit-scrollbar,
@@ -165,7 +159,7 @@ input
     +h1internal($size: px(32))
 
   h2
-    +h2($size: px(54))
+    +h2($size: px(32))
 
   h3
     +h3($size: px(18))
@@ -179,28 +173,30 @@ input
   input
     +body($size: px(24))
 
-  .main-step
-    width: 100%
-    padding: px(2) px(2) px(2) px(2)
-    margin: px(16) auto px(16) auto
-    border: px(1) solid #999
-    border-radius: px(6)
-    .form-w
-      justify-content: center
-      align-items: center
-      align-content: center
-      border: px(1) solid #999
-      border-radius: px(6)
-      padding: px(5)
-      margin: px(16) auto px(16) auto
-      .form-heading-w
-        width: 100%
-        h2
-          +h3($size: px(12))
+  .layoutSteps
+    padding: px(15) px(15) px(15) px(15)
+    margin: px(48) auto auto auto
+    border: px(1) solid $lgr
+    border-radius: px(4)
+    .main-step
+      height: auto
+      width: auto
+      overflow: hidden
+      .form-w
+        max-width: 100%
+        margin-top: px(20)
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        .form-heading-w
+          width: 100%
           margin-bottom: px(8)
-        p
-          +body($size: px(10))
-      .input-w
-        border: px(1) solid #999
-        border-radius: px(6)
-        width: auto
+          h2
+            margin-bottom: px(8)
+          p
+            +body($size: px(13))
+          .sub-title
+            +body()
+        h3
+          +body($size: px(13))
+          margin-bottom: px(8)

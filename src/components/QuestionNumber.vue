@@ -1,15 +1,11 @@
 <template>
   <div class="input-w">
     <button type="button"
-            :disabled="incrementDisabled"
-            @click="increment"
-            @keydown="increment"
+            :disabled="decrementDisabled"
+            @click="decrement"
+            @keydown="decrement"
             class="number-input-arrow">
-      <icon-base :iconWidth="24"
-                 :iconHeight="24">
-        <path d="M3 19h18a1 1 0 0 0
-            .82-1.57l-9-13c-.37-.54-1.27-.54-1.64 0l-9 13A1 1 0 0 0 3 19z"/>
-      </icon-base>
+      <span>-</span>
     </button>
     <div class="number-input-w">
       <label :for=idInput
@@ -31,15 +27,11 @@
       <div class="number-input-text">{{ symbolSecond }}</div>
     </div>
     <button type="button"
-            :disabled="decrementDisabled"
-            @click="decrement"
-            @keydown="decrement"
+            :disabled="incrementDisabled"
+            @click="increment"
+            @keydown="increment"
             class="number-input-arrow">
-      <icon-base :iconWidth="24"
-                 :iconHeight="24">
-        <path d="M11.18 19.57a1 1 0 0 0 1.64
-              0l9-13A1 1 0 0 0 21 5H3a1 1 0 0 0-.82 1.57l9 13z"/>
-      </icon-base>
+      <span>+</span>
     </button>
   </div>
 </template>
@@ -134,13 +126,44 @@ export default {
 };
 </script>
 <style lang="sass">
-input[type="number"]
-  text-align: center
-  padding: 0
-  outline: none
-  border: none
-  box-sizing: border-box
-  +body($size: em(24))
+.input-w
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  align-content: center
+  flex-wrap: nowrap
+  width: auto
+  .number-input-arrow
+    cursor: pointer
+    border: none
+    background: transparent
+    padding: 0
+    +bodyMedium($size: em(16))
+    span
+      display: flex
+      align-content: center
+      justify-content: center
+      align-items: center
+      width: em(40)
+      height: em(40)
+      border-radius: 100%
+      background-color: $white
+      &:hover
+        background-color: $milk
+  .number-input-w
+    padding: 0 em(8) 0 em(8)
+    .number-input
+      text-align: center
+      outline: none
+      box-sizing: border-box
+      +bodyMedium($size: em(16))
+      -moz-appearance: textfield
+      border: em(1) solid $lgr
+      border-radius: em(54)
+      background: transparent
+      width: em(58)
+      height: em(40)
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button
@@ -149,63 +172,43 @@ input[type=number]::-webkit-outer-spin-button
   -moz-appearance: none
   margin: 0
 
-input[type=number]
-  -moz-appearance: textfield
-
-.number-input-arrow
-  cursor: pointer
-  border: none
-  background: transparent
-
-  &:hover
-    color: $ored
-
-  &:active
-    color: $yel
-    transform: scale(0.9)
-
-.number-input-w
-  display: flex
-  align-content: center
-  justify-content: center
-  align-items: center
-
-  .number-input
-    background: transparent
-    border: none
-    width: em(40)
-    height: em(40)
-
 @include small-d
-  input[type="number"]
-    text-align: center
-    padding: px(2)
-    outline: none
-    border: none
-    box-sizing: border-box
-    +body($size: px(16))
-
-  .number-input-arrow
-    cursor: pointer
-    border: none
-    background: transparent
-
-    &:hover
-      color: $ored
-
-    &:active
-      color: $yel
-      transform: scale(0.9)
-
-  .number-input-w
+  .input-w
     display: flex
-    align-content: center
-    justify-content: center
+    flex-direction: row
     align-items: center
-
-    .number-input
-      background: transparent
+    justify-content: center
+    align-content: center
+    flex-wrap: nowrap
+    width: auto
+    .number-input-arrow
+      cursor: pointer
       border: none
-      width: px(25)
-      height: px(15)
+      background: transparent
+      padding: 0
+      +bodyMedium($size: px(16))
+      span
+        display: flex
+        align-content: center
+        justify-content: center
+        align-items: center
+        width: px(34)
+        height: px(34)
+        border-radius: 100%
+        background-color: $white
+        &:hover
+          background-color: $milk
+    .number-input-w
+      padding: 0 px(8) 0 px(8)
+      .number-input
+        text-align: center
+        outline: none
+        box-sizing: border-box
+        +bodyMedium($size: px(16))
+        -moz-appearance: textfield
+        border: px(1) solid $lgr
+        border-radius: px(54)
+        background: transparent
+        width: px(57)
+        height: px(34)
 </style>

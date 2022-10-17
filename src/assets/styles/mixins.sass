@@ -19,7 +19,7 @@
 
 =h2 ($color: $bl, $size: 54px, $height: 130%)
   font:
-    family: Neue-Regular
+    family: Tiempos-Light
     style: normal
     size: $size
     weight: 300
@@ -44,7 +44,25 @@
   line-height: $height
   color: $color
 
-=body ($color: $bl, $size: 16px, $height: 140%)
+=body ($color: $bl, $size: 16px, $height: 130%)
+  font:
+    family: Neue-Regular
+    style: normal
+    size: $size
+    weight: 400
+  line-height: $height
+  color: $color
+
+=bodyMedium ($color: $bl, $size: 16px, $height: 130%)
+  font:
+    family: Neue-Medium
+    style: normal
+    size: $size
+    weight: 500
+  line-height: $height
+  color: $color
+
+=LinkLarge ($color: $bl, $size: 24px, $height: 120%)
   font:
     family: Neue-Regular
     style: normal
@@ -60,7 +78,7 @@
 
 =linkHover
   +baseAnimation
-  text-decoration: none
+  text-decoration: underline
   &:hover
     text-decoration: underline
     color: #ff531a

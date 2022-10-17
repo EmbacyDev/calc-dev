@@ -4,59 +4,59 @@ export default {
       quest1: [
         {
           id: 'radio-1',
-          title: 'кастомный',
+          title: 'Custom',
           value: 3000,
           checked: true
         },
         {
           id: 'radio-2',
-          title: 'простой',
+          title: 'Basic',
           value: 2000
         }
       ],
       quest2: {
         id: 'quest2-number',
-        title: 'Кол-во шаблонных страниц',
+        title: 'Number of unique page?',
         value: 1
       },
       quest3: {
         id: 'quest3-number',
-        title: 'Кол-во уникальных страниц',
+        title: 'Number of template page?',
         value: 1
       },
-      quest4: [
-        {
-          id: 'radio-3',
-          title: 'Десктоп/мобайл',
-          value: 2000,
-          checked: true
-        },
-        {
-          id: 'radio-4',
-          title: 'Десктоп/мобайл+таблет',
-          value: 2500
-        },
-        {
-          id: 'radio-5',
-          title: 'Other',
-          value: 2500
-        }
-      ],
+      // quest4: [
+      //   {
+      //     id: 'radio-3',
+      //     title: 'Десктоп/мобайл',
+      //     value: 2000,
+      //     checked: true
+      //   },
+      //   {
+      //     id: 'radio-4',
+      //     title: 'Десктоп/мобайл+таблет',
+      //     value: 2500
+      //   },
+      //   {
+      //     id: 'radio-5',
+      //     title: 'Other',
+      //     value: 2500
+      //   }
+      // ],
       quest5: [
         {
           id: 'radio-6',
-          title: 'Базовые интерации',
+          title: 'Base interactions',
           value: 0,
           checked: true
         },
         {
           id: 'radio-7',
-          title: 'Ваша готовая анимация',
+          title: 'Interactions + motion design',
           value: 350
         },
         {
           id: 'radio-8',
-          title: 'Интерации и дизайн анимаций',
+          title: 'Use my stuff',
           value: 2500
         }
       ],
@@ -87,7 +87,7 @@ export default {
         },
         {
           id: 'check-5',
-          title: 'База знаний',
+          title: 'Knowledge Base',
           value: 455,
           checked: false
         }
