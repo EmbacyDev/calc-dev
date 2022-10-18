@@ -17,7 +17,8 @@
           <h4 class="sub-title">
             Layout option
           </h4>
-          <info-modal/>
+          <info-modal :tipTexts="LayoutOption"
+                      @openModal="openModalClick"/>
         </div>
         <question-radio :itemsRadioInput="quest1"
                         v-model:checkedRadio="valueQuest1"
@@ -25,10 +26,12 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Number of unique page?
           </h4>
+          <info-modal :tipTexts="NumberOfUnique"
+                      @openModal="openModalClick"/>
         </div>
         <question-number :value="quest2.value"
                          :min=1
@@ -39,10 +42,12 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Number of template page?
           </h4>
+          <info-modal :tipTexts="NumberOfTemplate"
+                      @openModal="openModalClick"/>
         </div>
         <question-number :value="quest3.value"
                          :min=1
@@ -53,17 +58,19 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Motion design
           </h4>
+          <info-modal :tipTexts="MotionDesign"
+                      @openModal="openModalClick"/>
         </div>
         <question-radio :itemsRadioInput="quest5"
                         v-model:checkedRadio="valueQuest5"
                         idGroup="quest5"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             What type of promo content will be on the website?
           </h4>
@@ -80,14 +87,16 @@
 import { mapActions, mapGetters } from 'vuex';
 import itemsStepTwo from '@/components/mixinsDate/itemsStepTwo';
 import InfoModal from '@/components/InfoModal';
+import itemsTipText from '@/components/mixinsDate/itemsTipText';
 
 export default {
   name: 'StepTwo',
   components: { InfoModal },
-  mixins: [itemsStepTwo],
+  mixins: [itemsStepTwo, itemsTipText],
   props: {},
   data() {
     return {
+      isInfoModal: false,
       valueQuest1: 3000,
       valueQuest2: 1,
       valueQuest3: 1,
@@ -138,6 +147,15 @@ export default {
           }
         ]
       );
+    },
+    openModalClick(item) {
+      const modal = item.parentNode.querySelector('.modal');
+      if (modal.style.display === 'none') {
+        modal.style.display = 'grid';
+      } else {
+        modal.style.display = 'none';
+      }
+      console.log('click', modal.style.display);
     }
   }
 };

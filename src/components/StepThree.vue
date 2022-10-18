@@ -14,7 +14,7 @@
         </div>
       </div>
       <div v-if="getVariant > 1"
-           class="form-w first-line-form">
+           class="form-w modal">
         <div class="form-heading-w">
           <h2>Integrations</h2>
           <p>
@@ -24,7 +24,7 @@
       </div>
       <div  v-if="getVariant === 1"
             class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             CMS technology
           </h4>
@@ -34,20 +34,25 @@
                         idGroup="quest7"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Integrations
           </h4>
+          <info-modal :tipTexts="Integrations"/>
         </div>
         <question-check-box :itemsCheckBoxInput="variantQuest8"
                             resetBoxName="No int"
                             v-model:checkedList="valueQuest8"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Website hosting
           </h4>
+          <info-modal v-if="variantQuest9 === quest9"
+                      :tipTexts="WebsiteHosting"/>
+          <info-modal v-if="variantQuest9 === quest9V2"
+                      :tipTexts="HostWebsite"/>
         </div>
         <question-radio :itemsRadioInput="variantQuest9"
                         v-model:checkedRadio="valueQuest9"
@@ -60,10 +65,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import itemsStepThree from '@/components/mixinsDate/itemsStepThree';
+import itemsTipText from '@/components/mixinsDate/itemsTipText';
 
 export default {
   name: 'StepThree',
-  mixins: [itemsStepThree],
+  mixins: [itemsStepThree, itemsTipText],
   props: {},
   data() {
     return {

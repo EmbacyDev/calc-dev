@@ -16,24 +16,33 @@
                     0V10c0-.422.35-.772.772-.772Z"/>
       </icon-base>
     </div>
-    <div class="modal">
+    <div class="modal"
+         style="display: none"
+         v-if="isOpen">
       <div class="info-text"
            v-for="item in tipTexts"
            :key="item.text">
-        <p class="title-modal">
+        <p v-if="item.title"
+           class="title-modal">
           {{ item.title }}
         </p>
         <p class="text-modal">
           {{ item.text }}
         </p>
-        <a class="link-modal"
+        <a v-if="item.links[0]"
+           class="link-modal"
            :href=item.links[0].href>
           {{ item.links[0].linkName }},
         </a>
-        <a v-if="item.links.length > 1"
+        <a v-if="item.links[1]"
            class="link-modal"
            :href=item.links[1].href>
-          {{ item.links[1].linkName }}
+          {{ item.links[1].linkName }},
+        </a>
+        <a v-if="item.links[2]"
+           class="link-modal"
+           :href=item.links[2].href>
+          {{ item.links[2].linkName }}
         </a>
       </div>
     </div>
@@ -43,43 +52,18 @@
 <script>
 export default {
   name: 'InfoModal',
-  data() {
-    return {
-      tipTexts: [
-        {
-          title: 'Basic',
-          text: 'This is how majority of industry standard website look like. eg:',
-          links: [
-            {
-              href: 'https://www.slash.com/',
-              linkName: 'slash.com'
-            },
-            {
-              href: 'https://www.multigate.io/',
-              linkName: 'multigate.io'
-            }
-          ]
-        },
-        {
-          title: 'Custom',
-          text: 'Choose this if you have something crazy in mind or find your task complex. eg:',
-          links: [
-            {
-              href: 'https://quasar.moscow/',
-              linkName: 'quasar.moscow'
-            },
-            {
-              href: 'https://seen.io/',
-              linkName: 'seen.io'
-            }
-          ]
-        }
-      ]
-    };
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: true
+    },
+    tipTexts: {
+      type: Object
+    }
   },
   methods: {
-    openModal() {
-      console.log('click');
+    openModal(event) {
+      this.$emit('openModal', event.target);
     }
   }
 };
@@ -95,7 +79,14 @@ export default {
     width: em(24)
     height: em(24)
     color: $lgr
+    z-index: 1
+    display: flex
+    align-content: center
+    justify-content: center
+    align-items: center
     +linkHover
+    .svg-w
+      z-index: -1
   .modal
     position: absolute
     left: em(25)
@@ -107,8 +98,9 @@ export default {
     border-radius: em(4)
     display: grid
     grid-template-columns: auto
-    grid-template-rows: repeat(2, auto)
+    grid-template-rows: repeat(1, auto)
     gap: em(24) 0
+    z-index: 2
     .info-text
       .title-modal
         +body($size: em(16))
