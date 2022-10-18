@@ -113,4 +113,47 @@ export default {
         text-decoration: none
         +linkHover
         +caption($size: em(14), $color: $gr)
+@include small-d
+.modal-w
+  margin-left: em(8)
+  position: relative
+  width: auto
+  .btn-modal
+    width: em(24)
+    height: em(24)
+    color: $lgr
+    z-index: 1
+    display: flex
+    align-content: center
+    justify-content: center
+    align-items: center
+    +linkHover
+    .svg-w
+      z-index: -1
+  .modal
+    position: absolute
+    left: px(25)
+    top: 0
+    width: px(320)
+    padding: px(16)
+    background-color: $white
+    box-shadow: 0 px(4) px(20) rgba(0, 0, 0, 0.06)
+    border-radius: px(4)
+    display: grid
+    grid-template-columns: auto
+    grid-template-rows: repeat(1, auto)
+    gap: px(24) 0
+    z-index: 2
+    .info-text
+      .title-modal
+        +body($size: px(16))
+        margin-bottom: px(4)
+      .text-modal
+        +caption($size: px(14))
+        margin-bottom: px(2)
+      .link-modal
+        margin-right: px(2)
+        text-decoration: none
+        +linkHover
+        +caption($size: px(14), $color: $gr)
 </style>

@@ -177,7 +177,7 @@ input[type=number]::-webkit-outer-spin-button
     display: flex
     flex-direction: row
     align-items: center
-    justify-content: center
+    justify-content: flex-start
     align-content: center
     flex-wrap: nowrap
     width: auto
