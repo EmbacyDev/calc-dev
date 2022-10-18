@@ -43,10 +43,10 @@ module.exports = {
       reset: true
     }],
     'vue/max-len': ['error', {
-      code: 300,
+      code: 400,
       template: 2000,
       tabWidth: 2,
-      comments: 300,
+      comments: 400,
       ignorePattern: '',
       ignoreComments: false,
       ignoreTrailingComments: false,

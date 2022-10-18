@@ -5,7 +5,7 @@
            class="form-w first-line-form">
         <div class="form-heading-w">
           <h2>Integrations</h2>
-          <p>
+          <p class="main-sub-title">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Faucibus et molestie ac feugiat sed

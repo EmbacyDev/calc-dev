@@ -4,7 +4,7 @@
       <div class="form-w first-line-form">
         <div class="form-heading-w">
           <h2>Type</h2>
-          <p>
+          <p class="main-sub-title">
             What type of website you are going for?
           </p>
         </div>

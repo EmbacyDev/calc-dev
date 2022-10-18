@@ -4,7 +4,7 @@
       <div class="form-w first-line-form">
         <div class="form-heading-w">
           <h2>Custom code</h2>
-          <p>
+          <p class="main-sub-title">
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore
             et dolore magna aliqua. Faucibus et molestie ac
@@ -13,10 +13,11 @@
         </div>
       </div>
       <div class="form-w">
-        <div class="form-heading-w">
+        <div class="form-heading-w modal">
           <h4 class="sub-title">
             Layout option
           </h4>
+          <info-modal/>
         </div>
         <question-radio :itemsRadioInput="quest1"
                         v-model:checkedRadio="valueQuest1"
@@ -78,9 +79,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import itemsStepTwo from '@/components/mixinsDate/itemsStepTwo';
+import InfoModal from '@/components/InfoModal';
 
 export default {
   name: 'StepTwo',
+  components: { InfoModal },
   mixins: [itemsStepTwo],
   props: {},
   data() {

@@ -6,7 +6,8 @@
           <div class="h-w">
             <h2>Pick your technology?</h2>
           </div>
-          <p>We develop no code website on Webflow and
+          <p class="main-sub-title">
+            We develop no code website on Webflow and
             custom code websites on Vue.js. Bi code os usually
             a go-t for 80& of websites out there, while custom code
             might be useful for something advanced.

@@ -4,6 +4,7 @@ import StepBeforeTwo from '@/components/StepBeforeTwo';
 import StepTwo from '@/components/StepTwo';
 import StepThree from '@/components/StepThree';
 import iconBase from '@/components/IconBase';
+import InfoModal from '@/components/InfoModal';
 import QuestionRadio from '@/components/QuestionRadio';
 import QuestionNumber from '@/components/QuestionNumber';
 import QuestionCheckBox from '@/components/QuestionCheckBox';
@@ -16,6 +17,7 @@ export default [
   StepTwo,
   StepThree,
   iconBase,
+  InfoModal,
   QuestionRadio,
   QuestionNumber,
   QuestionCheckBox,

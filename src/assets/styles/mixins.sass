@@ -62,6 +62,15 @@
   line-height: $height
   color: $color
 
+=caption ($color: $bl, $size: 14px, $height: 120%)
+  font:
+    family: Neue-Regular
+    style: normal
+    size: $size
+    weight: 400
+  line-height: $height
+  color: $color
+
 =LinkLarge ($color: $bl, $size: 24px, $height: 120%)
   font:
     family: Neue-Regular
@@ -78,7 +87,7 @@
 
 =linkHover
   +baseAnimation
-  text-decoration: underline
   &:hover
+    cursor: pointer
     text-decoration: underline
     color: #ff531a
