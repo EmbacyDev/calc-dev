@@ -14,7 +14,7 @@
         </div>
       </div>
       <div v-if="getVariant > 1"
-           class="form-w modal">
+           class="form-w modals">
         <div class="form-heading-w">
           <h2>Integrations</h2>
           <p>
@@ -24,7 +24,7 @@
       </div>
       <div  v-if="getVariant === 1"
             class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             CMS technology
           </h4>
@@ -34,7 +34,7 @@
                         idGroup="quest7"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Integrations
           </h4>
@@ -45,7 +45,7 @@
                             v-model:checkedList="valueQuest8"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Website hosting
           </h4>

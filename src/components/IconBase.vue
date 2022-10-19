@@ -40,10 +40,24 @@ export default {
       return `0 0 ${this.iconWidth} ${this.iconHeight}`;
     },
     wrapWidth() {
-      return `${this.iconWidth / 16}em`;
+      return `${this.iconWidth / this.screenSize()[1]}${this.screenSize()[0]}`;
     },
     wrapHeight() {
-      return `${this.iconHeight / 16}em`;
+      return `${this.iconHeight / this.screenSize()[1]}${this.screenSize()[0]}`;
+    }
+  },
+  methods: {
+    screenSize() {
+      let size = 'em';
+      let factor = 16;
+      const width = window.innerWidth
+          || document.documentElement.clientWidth
+          || document.body.clientWidth;
+      if (width < 480) {
+        size = 'px';
+        factor = 1;
+      }
+      return [size, factor];
     }
   }
 };

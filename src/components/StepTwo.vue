@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Layout option
           </h4>
@@ -26,7 +26,7 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Number of unique page?
           </h4>
@@ -42,7 +42,7 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Number of template page?
           </h4>
@@ -58,7 +58,7 @@
       </div>
       <div v-if="getVariant <= 3"
            class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             Motion design
           </h4>
@@ -70,7 +70,7 @@
                         idGroup="quest5"/>
       </div>
       <div class="form-w">
-        <div class="form-heading-w modal">
+        <div class="form-heading-w modals">
           <h4 class="sub-title">
             What type of promo content will be on the website?
           </h4>
@@ -149,13 +149,7 @@ export default {
       );
     },
     openModalClick(item) {
-      const modal = item.parentNode.querySelector('.modal');
-      if (modal.style.display === 'none') {
-        modal.style.display = 'grid';
-      } else {
-        modal.style.display = 'none';
-      }
-      console.log('click', modal.style.display);
+      console.log(item);
     }
   }
 };
