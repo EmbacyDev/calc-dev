@@ -16,35 +16,37 @@
                     0V10c0-.422.35-.772.772-.772Z"/>
       </icon-base>
     </div>
-    <div class="modal"
-         v-if="isOpen">
-      <div class="info-text"
-           v-for="item in tipTexts"
-           :key="item.text">
-        <p v-if="item.title"
-           class="title-modal">
-          {{ item.title }}
-        </p>
-        <p class="text-modal">
-          {{ item.text }}
-        </p>
-        <a v-if="item.links[0]"
-           class="link-modal"
-           :href=item.links[0].href>
-          {{ item.links[0].linkName }},
-        </a>
-        <a v-if="item.links[1]"
-           class="link-modal"
-           :href=item.links[1].href>
-          {{ item.links[1].linkName }},
-        </a>
-        <a v-if="item.links[2]"
-           class="link-modal"
-           :href=item.links[2].href>
-          {{ item.links[2].linkName }}
-        </a>
+    <transition name="modal">
+      <div class="modal"
+           v-if="isOpen">
+        <div class="info-text"
+             v-for="item in tipTexts"
+             :key="item.text">
+          <p v-if="item.title"
+             class="title-modal">
+            {{ item.title }}
+          </p>
+          <p class="text-modal">
+            {{ item.text }}
+          </p>
+          <a v-if="item.links[0]"
+             class="link-modal"
+             :href=item.links[0].href>
+            {{ item.links[0].linkName }},
+          </a>
+          <a v-if="item.links[1]"
+             class="link-modal"
+             :href=item.links[1].href>
+            {{ item.links[1].linkName }},
+          </a>
+          <a v-if="item.links[2]"
+             class="link-modal"
+             :href=item.links[2].href>
+            {{ item.links[2].linkName }}
+          </a>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -62,15 +64,36 @@ export default {
     };
   },
   methods: {
+    listenerClicks() {
+      if (this.isOpen) document.addEventListener('click', this.onClickOutside);
+      else document.removeEventListener('click', this.onClickOutside);
+    },
     openModal() {
       this.isOpen = !this.isOpen;
-      this.$emit('openModal', this.isOpen);
+      this.listenerClicks();
+    },
+    onClickOutside(target) {
+      this.isOpen = this.$el.contains(target.target) && this.isOpen;
+      this.listenerClicks();
     }
   }
 };
 </script>
 
 <style scoped lang="sass">
+.modal-enter-active
+  animation: bounce-in .2s
+.modal-leave-active
+  animation: bounce-in .2s reverse
+
+@keyframes bounce-in
+  0%
+    transform: scale(0)
+    opacity: 0
+  100%
+    transform: scale(1)
+    opacity: 1
+
 .modal-w
   margin-left: em(8)
   position: relative

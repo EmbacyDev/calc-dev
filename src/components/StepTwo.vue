@@ -17,8 +17,7 @@
           <h4 class="sub-title">
             Layout option
           </h4>
-          <info-modal :tipTexts="LayoutOption"
-                      @openModal="openModalClick"/>
+          <info-modal :tipTexts="LayoutOption"/>
         </div>
         <question-radio :itemsRadioInput="quest1"
                         v-model:checkedRadio="valueQuest1"
@@ -30,8 +29,7 @@
           <h4 class="sub-title">
             Number of unique page?
           </h4>
-          <info-modal :tipTexts="NumberOfUnique"
-                      @openModal="openModalClick"/>
+          <info-modal :tipTexts="NumberOfUnique"/>
         </div>
         <question-number :value="quest2.value"
                          :min=1
@@ -46,8 +44,7 @@
           <h4 class="sub-title">
             Number of template page?
           </h4>
-          <info-modal :tipTexts="NumberOfTemplate"
-                      @openModal="openModalClick"/>
+          <info-modal :tipTexts="NumberOfTemplate"/>
         </div>
         <question-number :value="quest3.value"
                          :min=1
@@ -62,8 +59,7 @@
           <h4 class="sub-title">
             Motion design
           </h4>
-          <info-modal :tipTexts="MotionDesign"
-                      @openModal="openModalClick"/>
+          <info-modal :tipTexts="MotionDesign"/>
         </div>
         <question-radio :itemsRadioInput="quest5"
                         v-model:checkedRadio="valueQuest5"
@@ -147,9 +143,6 @@ export default {
           }
         ]
       );
-    },
-    openModalClick(item) {
-      console.log(item);
     }
   }
 };
