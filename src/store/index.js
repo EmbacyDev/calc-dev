@@ -40,7 +40,6 @@ export default createStore({
       if (state.totalLength.length <= 1) {
         state.total = [];
         state.totalLength = [];
-        state.variant = [1];
       } else {
         const end = state.totalLength[0] - state.totalLength[1];
         state.total.splice(state.totalLength[1], end);

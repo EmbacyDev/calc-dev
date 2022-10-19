@@ -2,8 +2,29 @@
   <div class='main-step step-two'>
     <form>
       <div class="form-w first-line-form">
-        <div class="form-heading-w">
+        <div v-if="getVariant <= 1"
+             class="form-heading-w">
           <h2>Custom code</h2>
+          <p class="main-sub-title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Faucibus et molestie ac
+            feugiat sed lectus vestibulum.
+          </p>
+        </div>
+        <div v-else-if="getVariant === 3"
+             class="form-heading-w">
+          <h2>Landing page</h2>
+          <p class="main-sub-title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Faucibus et molestie ac
+            feugiat sed lectus vestibulum.
+          </p>
+        </div>
+        <div v-else
+             class="form-heading-w">
+          <h2>Corporate website</h2>
           <p class="main-sub-title">
             Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore
