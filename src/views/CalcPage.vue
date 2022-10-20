@@ -70,15 +70,15 @@ export default {
     return {
       itemsStep: [
         {
-          title: '1. Technology',
+          title: 'Technology',
           icon: false
         },
         {
-          title: '2. Layout ',
+          title: 'Layout ',
           icon: false
         },
         {
-          title: '3. Integrations',
+          title: 'Integrations',
           icon: false
         }
       ],
@@ -103,15 +103,38 @@ export default {
       return stepLength;
     }
   },
-  watch: {},
+  // watch: {
+  //   itemsStep: {
+  //     handler() {
+  //       console.log('изменился');
+  //       this.activStepsClass();
+  //     },
+  //     deep: true
+  //   }
+  // },
+  // mounted() {
+  //   this.activStepsClass();
+  // },
   methods: {
     ...mapActions([
       'REMOVE_TOTAL'
     ]),
+    // activStepsClass() {
+    //   const steps = document.querySelectorAll('.step');
+    //   console.log(steps);
+    //   steps.forEach((el, index) => {
+    //     if (el.classList.contains('activeLine')) {
+    //       console.log(steps[index + 1]);
+    //       steps[index + 1].classList.remove('preActiveLine');
+    //     } else {
+    //       steps[0].classList.add('preActiveLine');
+    //     }
+    //   });
+    // },
     updateItemSteps() {
       if (this.VARIANT[0] === 2) {
-        this.itemsStep.push({
-          title: 'Step 4',
+        this.itemsStep.splice(1, 0, {
+          title: 'Type',
           icon: false
         });
       }
@@ -119,7 +142,6 @@ export default {
     removeItemSteps() {
       if (this.step < 1 && this.itemsStep.length > 2) {
         this.itemsStep.splice(3, 1);
-        console.log('РАБОТАЕТ');
       }
     },
     nextStep() {
@@ -129,7 +151,6 @@ export default {
         this.step++;
       } else {
         this.$router.push({ path: '/total' });
-        // console.log({ router: this.$router });
       }
     },
     prevStep() {
@@ -185,6 +206,11 @@ export default {
           +body($color: $pur, $size: em(16))
         .line-step
           background-color: $pur
+      .step.preActiveLine
+        h5
+          +body($color: $or-bg, $size: em(16))
+        .line-step
+          background-color: $or-bg
   .button-w
     width: auto
     display: flex

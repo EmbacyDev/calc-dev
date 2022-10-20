@@ -17,7 +17,7 @@
            class="form-w modals">
         <div class="form-heading-w">
           <h2>Integrations</h2>
-          <p>
+          <p class="main-sub-title">
             Which apps or services we are connecting
           </p>
         </div>

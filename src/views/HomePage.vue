@@ -93,7 +93,7 @@ export default {
           +h3($size: px(18))
           +baseAnimation
           &:hover
-            +h3($size: px(30), $color: $or)
+            +h3($size: px(18), $color: $or)
     .main-img-w
       margin-left: px(0)
       max-width: 100%
